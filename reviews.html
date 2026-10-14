@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Reviews & Feedback | World Electronics Kapsabet</title>
+  <meta name="description" content="Read customer experiences and submit your review for World Electronics in Kapsabet, Nandi County, Kenya." />
+  <meta name="theme-color" content="#101828" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-item">Open Daily | 8:00 AM–8:00 PM</span>
+        <span class="top-bar-item top-bar-hide-mobile">Kapsabet, Nandi County, Kenya</span>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="top-bar-link">
+          WhatsApp: +254 715 071 820
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-main">
+      <a href="index.html" class="brand-logo" aria-label="World Electronics Homepage">
+        <div class="brand-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+        </div>
+        <div class="brand-info">
+          <span class="brand-title">WORLD ELECTRONICS</span>
+          <span class="brand-location">Kapsabet, Kenya</span>
+        </div>
+      </a>
+
+      <ul class="main-nav-links">
+        <li class="main-nav-item"><a href="index.html" class="main-nav-link">Home</a></li>
+        <li class="main-nav-item"><a href="products.html" class="main-nav-link">Products</a></li>
+        <li class="main-nav-item"><a href="order.html" class="main-nav-link">Order Form</a></li>
+        <li class="main-nav-item"><a href="about.html" class="main-nav-link">About Us</a></li>
+        <li class="main-nav-item"><a href="blog.html" class="main-nav-link">Tech Guides</a></li>
+        <li class="main-nav-item"><a href="reviews.html" class="main-nav-link active">Reviews</a></li>
+        <li class="main-nav-item"><a href="contact.html" class="main-nav-link">Contact</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="order.html" class="btn btn-navy" style="font-size: 0.8125rem;">Order Form</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="page-breadcrumbs">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Customer Feedback</span>
+      </div>
+      <h1 class="page-hero-title">Customer Reviews & Ratings</h1>
+      <p class="page-hero-desc">Read honest feedback from customers across Kapsabet and Nandi County, or share your own experience with our service.</p>
+    </div>
+  </section>
+
+  <!-- REVIEWS CONTENT -->
+  <main class="section-padding">
+    <div class="container">
+      <div class="reviews-summary-grid">
+        <!-- Score Card -->
+        <div class="reviews-score-card">
+          <div class="reviews-big-score">5.0</div>
+          <div class="stars-display" style="font-size: 1.5rem; margin-bottom: 0.5rem;">
+            ★★★★★
+          </div>
+          <p style="font-size: 0.9375rem; color: #cbd5e1; margin-bottom: 1.5rem;">
+            Based on customer feedback in Kapsabet
+          </p>
+          <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20share%20my%20feedback%20about%20my%20recent%20purchase." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+            Send Feedback on WhatsApp
+          </a>
+        </div>
+
+        <!-- Interactive Submit Review Form -->
+        <div class="order-form-card" style="margin-bottom: 0;">
+          <h2 class="order-card-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+            </svg>
+            Leave Your Review & Feedback
+          </h2>
+
+          <form id="customerReviewForm">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="reviewAuthorName" class="form-label">Your Name *</label>
+                <input type="text" id="reviewAuthorName" class="form-input" placeholder="e.g. Victor Kosgei" required />
+              </div>
+              <div class="form-group">
+                <label for="reviewAuthorLocation" class="form-label">Your Location</label>
+                <input type="text" id="reviewAuthorLocation" class="form-input" placeholder="e.g. Kapsabet CBD, Baraton" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reviewProductName" class="form-label">Product Purchased</label>
+              <input type="text" id="reviewProductName" class="form-input" placeholder="e.g. Samsung Phone, Power Bank, Laptop, Earbuds" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Your Rating</label>
+              <div class="star-rating-selector" aria-label="Select star rating">
+                <span class="star active" data-value="1">★</span>
+                <span class="star active" data-value="2">★</span>
+                <span class="star active" data-value="3">★</span>
+                <span class="star active" data-value="4">★</span>
+                <span class="star active" data-value="5">★</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reviewCommentText" class="form-label">Your Experience & Feedback *</label>
+              <textarea id="reviewCommentText" class="form-textarea" rows="3" placeholder="Tell us about the product quality, battery performance, and store service..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-navy btn-lg">
+              Post Customer Review
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Reviews Feed -->
+      <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+        <span class="section-kicker">All Customer Feedback</span>
+        <h2 class="section-title" style="font-size: 1.75rem;">Verified Customer Experiences</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;" id="reviewsListContainer">
+        <!-- Populated via script.js initReviewsPage() -->
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top: none; padding-top: 0;">
+      <div>&copy; <span id="copyrightYear">2026</span> World Electronics Kapsabet, Kenya.</div>
+      <div><a href="order.html" style="color: #60a5fa;">Place an Order Online →</a></div>
+    </div>
+  </footer>
+
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastText">Review submitted</span>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

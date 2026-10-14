@@ -1,0 +1,8 @@
+{
+  "name": "World Electronics Kapsabet",
+  "description": "World Electronics Kapsabet — Premium electronics, smartphones, laptops, audio, accessories, and instant WhatsApp ordering in Kapsabet, Kenya.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
