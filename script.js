@@ -2,10 +2,11 @@
  * WORLD ELECTRONICS KAPSABET — MAIN SCRIPT
  * Vanilla JavaScript E-Commerce Storefront
  * Mobile-First, Accessible, Client-Side Cart & Direct WhatsApp Handoff
+ * Zero Frameworks / Zero External Dependencies
  */
 
 // =============================================================================
-// 1. BUSINESS CONFIGURATION (EASY TO UPDATE)
+// 1. BUSINESS CONFIGURATION (EDITABLE BY STORE OWNER)
 // =============================================================================
 const STORE_CONFIG = {
   name: "WORLD ELECTRONICS",
@@ -20,16 +21,15 @@ const STORE_CONFIG = {
   currency: "KSh",
   googleMapsUrl: "https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9",
   kyteCatalogueUrl: "https://world-electronics.kyte.site/en",
-  carouselIntervalMs: 2000 // 2 seconds rotation as required
+  carouselIntervalMs: 2000 // 2 seconds rotation
 };
 
 // =============================================================================
-// 2. PRODUCT CATALOGUE (AT LEAST 26 SAMPLE PRODUCTS)
-// NOTE FOR STORE OWNER: Prices, stock, and descriptions are sample catalogue
-// records for preview and can be adjusted below.
+// 2. PRODUCT CATALOGUE (26 DISTINCT SAMPLE PRODUCTS ACROSS 8 DEPARTMENTS)
+// NOTE: Prices and stock entries are sample catalogue records for preview.
 // =============================================================================
 const PRODUCTS_CATALOGUE = [
-  // --- Smartphones ---
+  // --- 1. Smartphones ---
   {
     id: "phone-01",
     name: "Samsung Galaxy A-Series 4G/5G Smartphone",
@@ -43,7 +43,7 @@ const PRODUCTS_CATALOGUE = [
     isPopular: true,
     image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=700&q=80",
     description: "Vibrant AMOLED display with smooth refresh rate, multi-lens camera system for clear day and night photos, and long-lasting 5,000mAh battery for all-day use.",
-    specs: ["6.6-inch FHD+ Display", "50MP Triple Camera", "128GB Storage / 4GB RAM", "5000mAh Battery + Fast Charging"],
+    specs: ["6.6-inch FHD+ Display", "50MP Triple Camera", "128GB Storage / 4GB RAM", "5,000mAh Battery + Fast Charging"],
     inStock: true
   },
   {
@@ -95,7 +95,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- Laptops & Computers ---
+  // --- 2. Laptops & Computers ---
   {
     id: "laptop-01",
     name: "HP Core i5 15.6-inch Business & Student Laptop",
@@ -145,7 +145,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- TVs & Entertainment ---
+  // --- 3. TVs & Entertainment ---
   {
     id: "tv-01",
     name: "Samsung 43-inch Crystal UHD 4K Smart TV",
@@ -195,7 +195,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- Audio & Speakers ---
+  // --- 4. Audio & Speakers ---
   {
     id: "audio-01",
     name: "Active Noise-Cancelling Bluetooth Wireless Headphones",
@@ -261,7 +261,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- Wearables ---
+  // --- 5. Wearables ---
   {
     id: "wear-01",
     name: "Smartwatch with Bluetooth Calling & Heart Monitor",
@@ -295,7 +295,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- Phone Accessories ---
+  // --- 6. Phone Accessories ---
   {
     id: "acc-01",
     name: "Braided Fast-Charging USB-C to USB-C Cable (60W)",
@@ -345,7 +345,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- Power & Charging ---
+  // --- 7. Power & Charging ---
   {
     id: "power-01",
     name: "20,000mAh Dual USB Fast-Charging Power Bank",
@@ -395,7 +395,7 @@ const PRODUCTS_CATALOGUE = [
     inStock: true
   },
 
-  // --- Home & Office Electronics ---
+  // --- 8. Home & Office Electronics ---
   {
     id: "home-01",
     name: "Wireless Ergonomic Keyboard and Optical Mouse Combo",
@@ -463,7 +463,7 @@ const PRODUCTS_CATALOGUE = [
 ];
 
 // =============================================================================
-// 3. BLOG & TECH GUIDES DATA
+// 3. EDITORIAL ARTICLES / TECH GUIDES
 // =============================================================================
 const BLOG_ARTICLES = [
   {
@@ -542,21 +542,54 @@ const BLOG_ARTICLES = [
 ];
 
 // =============================================================================
-// 4. CLIENT-SIDE SHOPPING CART STATE (LOCALSTORAGE PERSISTED)
+// 4. BULLETPROOF INLINE SVG IMAGE FALLBACK & GLOBAL ERROR CATCHER
+// =============================================================================
+function handleImageError(imgElement, categoryName) {
+  if (!imgElement) return;
+  imgElement.onerror = null; // Prevent loop
+  imgElement.removeAttribute("srcset");
+  imgElement.removeAttribute("sizes");
+
+  const cat = String(categoryName || "World Electronics")
+    .replace(/[&<>"']/g, "")
+    .trim() || "World Electronics";
+
+  // Clean, self-contained SVG Data URI with electronics icon and label
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" fill="#0f172a">
+    <rect width="400" height="300" fill="#0f172a"/>
+    <rect x="150" y="85" width="100" height="70" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="200" cy="120" r="14" fill="#38bdf8"/>
+    <text x="200" y="195" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="700" fill="#f8fafc" text-anchor="middle">${cat}</text>
+    <text x="200" y="218" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">World Electronics · Kapsabet</text>
+  </svg>`;
+
+  imgElement.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+}
+
+// Global capture-phase listener to catch ANY image loading error across the entire page
+window.addEventListener("error", function(e) {
+  if (e.target && e.target.tagName === "IMG") {
+    handleImageError(e.target, e.target.getAttribute("alt") || "World Electronics");
+  }
+}, true);
+
+// =============================================================================
+// 5. CLIENT-SIDE SHOPPING CART ENGINE (LOCALSTORAGE PERSISTED)
 // =============================================================================
 const CART_STORAGE_KEY = "we_kapsabet_cart_v1";
-
 let cart = [];
 
 function loadCart() {
   try {
     const raw = localStorage.getItem(CART_STORAGE_KEY);
     if (raw) {
-      cart = JSON.parse(raw);
-      if (!Array.isArray(cart)) cart = [];
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        cart = parsed.filter(item => item && item.id && Number(item.price) > 0 && Number(item.quantity) > 0);
+      }
     }
   } catch (err) {
-    console.warn("Storage access restricted. Cart running in memory mode.", err);
+    console.warn("Storage restricted. Using memory cart.", err);
     cart = [];
   }
 }
@@ -565,7 +598,7 @@ function saveCart() {
   try {
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
   } catch (err) {
-    console.warn("Unable to save cart to localStorage.", err);
+    console.warn("Could not save cart to storage.", err);
   }
   updateCartBadge();
   renderCartDrawer();
@@ -575,9 +608,11 @@ function addToCart(productId, quantity = 1) {
   const product = PRODUCTS_CATALOGUE.find(p => p.id === productId);
   if (!product) return;
 
+  const qtyToAdd = Math.max(1, parseInt(quantity, 10) || 1);
   const existing = cart.find(item => item.id === productId);
+
   if (existing) {
-    existing.quantity += quantity;
+    existing.quantity += qtyToAdd;
   } else {
     cart.push({
       id: product.id,
@@ -585,13 +620,13 @@ function addToCart(productId, quantity = 1) {
       price: product.price,
       image: product.image,
       category: product.category,
-      quantity: quantity
+      quantity: qtyToAdd
     });
   }
 
   saveCart();
-  showToast(`Added "${product.name}" to your cart`);
-  
+  showToast(`Added "${product.name}" to cart`);
+
   // Animate badge
   const badge = document.getElementById("headerCartBadge");
   if (badge) {
@@ -625,101 +660,99 @@ function clearCart() {
 }
 
 function getCartSubtotal() {
-  return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  return cart.reduce((sum, item) => sum + (Number(item.price) * Number(item.quantity)), 0);
 }
 
 function getCartTotalCount() {
-  return cart.reduce((sum, item) => sum + item.quantity, 0);
+  return cart.reduce((sum, item) => sum + Number(item.quantity), 0);
 }
 
 function formatKSh(amount) {
-  return `KSh ${Number(amount).toLocaleString('en-KE')}`;
+  return `KSh ${Number(amount || 0).toLocaleString('en-KE')}`;
+}
+
+function updateCartBadge() {
+  const count = getCartTotalCount();
+  const badges = document.querySelectorAll("#headerCartBadge, .cart-badge");
+  badges.forEach(badge => {
+    badge.textContent = count;
+    badge.style.display = count > 0 ? "flex" : "none";
+  });
 }
 
 // =============================================================================
-// 5. WHATSAPP LINK GENERATION (PRIMARY ORDERING MECHANISM)
+// 6. WHATSAPP LINK GENERATORS (EXACT PROTOCOL & PROPER ENCODING)
 // =============================================================================
 
 /**
- * Generate WhatsApp message URL for an individual product enquiry
+ * Method A: Order individual product enquiry
  */
 function getProductWhatsAppUrl(productId, customQty = 1) {
   const product = PRODUCTS_CATALOGUE.find(p => p.id === productId);
   if (!product) return `https://wa.me/${STORE_CONFIG.whatsappNumber}`;
 
+  const qty = Math.max(1, parseInt(customQty, 10) || 1);
   const message = [
-    `Hello ${STORE_CONFIG.name}!`,
-    `I would like to enquire about this product from your website:`,
+    `Hello World Electronics! I would like to enquire about this product:`,
     ``,
-    `*Product:* ${product.name}`,
-    `*Category:* ${product.category}`,
-    `*Displayed Price:* ${formatKSh(product.price)}`,
-    `*Quantity:* ${customQty}`,
+    `Product: ${product.name}`,
+    `Displayed price: ${formatKSh(product.price)}`,
+    `Quantity: ${qty}`,
     ``,
-    `Please confirm availability, the current price, and delivery or collection options in Kapsabet.`
+    `Please confirm availability, the current price, and delivery or collection options.`
   ].join("\n");
 
   return `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 /**
- * Generate WhatsApp checkout URL for the entire cart
+ * Method B: Checkout entire shopping cart
  */
 function getCartWhatsAppUrl(customerNotes = "") {
   if (cart.length === 0) return null;
 
   const itemsList = cart.map((item, idx) => {
     const lineTotal = item.price * item.quantity;
-    return `${idx + 1}. *${item.name}* x ${item.quantity} — ${formatKSh(item.price)} each (Total: ${formatKSh(lineTotal)})`;
+    return `${idx + 1}. ${item.name} x ${item.quantity} — ${formatKSh(item.price)} each (Total: ${formatKSh(lineTotal)})`;
   }).join("\n");
 
   const subtotal = getCartSubtotal();
 
   const messageLines = [
-    `Hello ${STORE_CONFIG.name}!`,
-    `I would like to place an order from your website catalogue:`,
+    `Hello World Electronics! I would like to place an order from your website:`,
     ``,
-    `*ORDER ITEMS:*`,
+    `ORDER ITEMS:`,
     itemsList,
     ``,
-    `*Estimated Subtotal:* ${formatKSh(subtotal)}`,
-    customerNotes ? `*Customer Note / Delivery Area:* ${customerNotes.trim()}` : null,
+    `Estimated Subtotal: ${formatKSh(subtotal)}`,
+    customerNotes ? `Delivery Area / Note: ${customerNotes.trim()}` : null,
     ``,
-    `Please confirm product availability, final pricing, and collection or delivery arrangements with me.`
+    `Please confirm product availability, the final price, and delivery or collection arrangements.`
   ].filter(line => line !== null);
 
-  const message = messageLines.join("\n");
-  return `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(messageLines.join("\n"))}`;
 }
 
-/**
- * Open WhatsApp with prefilled newsletter/broadcast enquiry
- */
+function openWhatsAppLink(url) {
+  if (!url) return;
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  setTimeout(() => {
+    if (link.parentNode) link.parentNode.removeChild(link);
+  }, 100);
+}
+
 function openNewsletterWhatsApp() {
-  const message = `Hello ${STORE_CONFIG.name}! Please add my number to your broadcast list for new arrivals and tech offers in Kapsabet.`;
-  window.open(`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+  const message = `Hello World Electronics! Please add my number to your WhatsApp broadcast list for new arrivals and tech offers in Kapsabet.`;
+  openWhatsAppLink(`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`);
 }
 
 // =============================================================================
-// 6. IMAGE FALLBACK UTILITY (PREVENTS BROKEN IMAGE ICONS)
-// =============================================================================
-function handleImageError(imgElement, categoryName) {
-  imgElement.onerror = null;
-  // Replace with clean inline SVG placeholder
-  imgElement.parentElement.innerHTML = `
-    <div class="product-image-fallback">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-        <line x1="8" y1="21" x2="16" y2="21"></line>
-        <line x1="12" y1="17" x2="12" y2="21"></line>
-      </svg>
-      <span style="font-size: 0.75rem; font-weight: 600; color: #64748b;">${categoryName || 'World Electronics'}</span>
-    </div>
-  `;
-}
-
-// =============================================================================
-// 7. CARD RENDERING ENGINE
+// 7. PRODUCT CARD HTML GENERATOR
 // =============================================================================
 function renderProductCardHTML(product) {
   let badgeHTML = "";
@@ -751,7 +784,7 @@ function renderProductCardHTML(product) {
       </div>
       <div class="product-body">
         <span class="product-category-text">${product.category}</span>
-        <h3 class="product-title" onclick="openProductModal('${product.id}')">${product.name}</h3>
+        <h3 class="product-title" onclick="openProductModal('${product.id}')" title="${product.name}">${product.name}</h3>
         <div class="product-price-row">
           <span class="product-price-current tabular-nums">${formatKSh(product.price)}</span>
           ${oldPriceHTML}
@@ -769,7 +802,7 @@ function renderProductCardHTML(product) {
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
             </svg>
-            Order
+            WhatsApp
           </a>
         </div>
       </div>
@@ -778,13 +811,15 @@ function renderProductCardHTML(product) {
 }
 
 // =============================================================================
-// 8. SECTION POPULATORS
+// 8. SECTION POPULATION & FILTERING ENGINE
 // =============================================================================
+let currentFilterCategory = "all";
+let currentSearchTerm = "";
+let currentSortMode = "featured";
 
 function populateHotDeals() {
   const container = document.getElementById("hotDealsContainer");
   if (!container) return;
-
   const deals = PRODUCTS_CATALOGUE.filter(p => p.isHotDeal).slice(0, 8);
   container.innerHTML = deals.map(p => renderProductCardHTML(p)).join("");
 }
@@ -792,7 +827,6 @@ function populateHotDeals() {
 function populateLatestArrivals() {
   const container = document.getElementById("latestArrivalsContainer");
   if (!container) return;
-
   const latest = PRODUCTS_CATALOGUE.filter(p => p.isNewArrival).slice(0, 8);
   container.innerHTML = latest.map(p => renderProductCardHTML(p)).join("");
 }
@@ -800,18 +834,12 @@ function populateLatestArrivals() {
 function populateCustomerFavourites() {
   const container = document.getElementById("customerFavouritesContainer");
   if (!container) return;
-
   const favourites = PRODUCTS_CATALOGUE.filter(p => p.isPopular).slice(0, 8);
   container.innerHTML = favourites.map(p => renderProductCardHTML(p)).join("");
 }
 
-// Master collection state
-let currentFilterCategory = "all";
-let currentSearchTerm = "";
-let currentSortMode = "featured";
-
 function renderMasterCollection() {
-  const container = document.getElementById("masterCollectionGrid");
+  const container = document.getElementById("masterCollectionGrid") || document.getElementById("allProductsGrid");
   const countEl = document.getElementById("collectionProductCount");
   if (!container) return;
 
@@ -822,7 +850,7 @@ function renderMasterCollection() {
     filtered = filtered.filter(p => p.categorySlug === currentFilterCategory);
   }
 
-  // Search filter
+  // Live search
   if (currentSearchTerm.trim()) {
     const q = currentSearchTerm.toLowerCase().trim();
     filtered = filtered.filter(p => 
@@ -844,19 +872,17 @@ function renderMasterCollection() {
     filtered.sort((a, b) => (b.isNewArrival ? 1 : 0) - (a.isNewArrival ? 1 : 0));
   }
 
-  // Update count
+  // Update product count
   if (countEl) {
     countEl.textContent = `Showing ${filtered.length} of ${PRODUCTS_CATALOGUE.length} products`;
   }
 
-  // Render cards or empty message
   if (filtered.length === 0) {
     container.innerHTML = `
       <div class="empty-results" style="grid-column: 1 / -1;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          <line x1="8" y1="11" x2="14" y2="11"></line>
         </svg>
         <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: #101828;">No matching products found</h3>
         <p style="color: #64748b; font-size: 0.9375rem; margin-bottom: 1.5rem;">Try adjusting your search terms or clearing your category filters.</p>
@@ -871,19 +897,17 @@ function renderMasterCollection() {
 function filterByCategory(slug) {
   currentFilterCategory = slug;
   
-  // Update UI active buttons
+  // Highlight active buttons
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.classList.toggle("active", btn.getAttribute("data-category") === slug);
   });
 
-  // Update header category navigation
   document.querySelectorAll(".category-nav-link").forEach(link => {
     link.classList.toggle("active", link.getAttribute("data-category") === slug);
   });
 
   renderMasterCollection();
 
-  // Scroll smoothly to collection section
   const section = document.getElementById("collection");
   if (section) {
     section.scrollIntoView({ behavior: "smooth" });
@@ -895,14 +919,10 @@ function resetAllFilters() {
   currentSearchTerm = "";
   currentSortMode = "featured";
 
-  const searchInput = document.getElementById("collectionSearchInput");
-  const headerSearchInput = document.getElementById("headerSearchInput");
-  const mobileSearchInput = document.getElementById("mobileSearchInput");
-  const sortSelect = document.getElementById("collectionSortSelect");
+  const inputs = document.querySelectorAll("#collectionSearchInput, #headerSearchInput, #mobileSearchInput");
+  inputs.forEach(input => { input.value = ""; });
 
-  if (searchInput) searchInput.value = "";
-  if (headerSearchInput) headerSearchInput.value = "";
-  if (mobileSearchInput) mobileSearchInput.value = "";
+  const sortSelect = document.getElementById("collectionSortSelect");
   if (sortSelect) sortSelect.value = "featured";
 
   document.querySelectorAll(".filter-btn").forEach(btn => {
@@ -917,11 +937,11 @@ function resetAllFilters() {
 }
 
 // =============================================================================
-// 9. PROMOTIONAL CAROUSEL (ROTATES EVERY 2 SECONDS)
+// 9. PROMOTIONAL CAROUSEL (2-SECOND ROTATION, PAUSE ON HOVER, ARROWS, 5 DOTS)
 // =============================================================================
-let carouselCurrentIndex = 0;
+let carouselIndex = 0;
 let carouselTimer = null;
-const CAROUSEL_TOTAL_SLIDES = 5;
+const CAROUSEL_TOTAL = 5;
 
 function initCarousel() {
   const slides = document.querySelectorAll(".carousel-slide");
@@ -929,82 +949,92 @@ function initCarousel() {
   if (slides.length === 0) return;
 
   function showSlide(index) {
-    carouselCurrentIndex = (index + CAROUSEL_TOTAL_SLIDES) % CAROUSEL_TOTAL_SLIDES;
+    carouselIndex = (index + CAROUSEL_TOTAL) % CAROUSEL_TOTAL;
     slides.forEach((slide, idx) => {
-      slide.classList.toggle("active", idx === carouselCurrentIndex);
+      slide.classList.toggle("active", idx === carouselIndex);
     });
     dots.forEach((dot, idx) => {
-      dot.classList.toggle("active", idx === carouselCurrentIndex);
+      dot.classList.toggle("active", idx === carouselIndex);
     });
   }
 
   function nextSlide() {
-    showSlide(carouselCurrentIndex + 1);
+    showSlide(carouselIndex + 1);
   }
 
   function prevSlide() {
-    showSlide(carouselCurrentIndex - 1);
+    showSlide(carouselIndex - 1);
   }
 
-  function startAutoRotation() {
-    stopAutoRotation();
-    // 2-second rotation per requirements
+  function startAuto() {
+    stopAuto();
     carouselTimer = setInterval(nextSlide, STORE_CONFIG.carouselIntervalMs);
   }
 
-  function stopAutoRotation() {
+  function stopAuto() {
     if (carouselTimer) {
       clearInterval(carouselTimer);
       carouselTimer = null;
     }
   }
 
-  // Next / Prev button listeners
   const nextBtn = document.getElementById("carouselNextBtn");
   const prevBtn = document.getElementById("carouselPrevBtn");
-  if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); startAutoRotation(); });
-  if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); startAutoRotation(); });
+  if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); startAuto(); });
+  if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); startAuto(); });
 
-  // Dots listeners
   dots.forEach((dot, idx) => {
     dot.addEventListener("click", () => {
       showSlide(idx);
-      startAutoRotation();
+      startAuto();
     });
   });
 
-  // Pause on hover
   const wrapper = document.querySelector(".promo-carousel-wrapper");
   if (wrapper) {
-    wrapper.addEventListener("mouseenter", stopAutoRotation);
-    wrapper.addEventListener("mouseleave", startAutoRotation);
-    wrapper.addEventListener("focusin", stopAutoRotation);
-    wrapper.addEventListener("focusout", startAutoRotation);
+    wrapper.addEventListener("mouseenter", stopAuto);
+    wrapper.addEventListener("mouseleave", startAuto);
+    wrapper.addEventListener("focusin", stopAuto);
+    wrapper.addEventListener("focusout", startAuto);
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    wrapper.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAuto();
+    }, { passive: true });
+
+    wrapper.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) {
+        nextSlide();
+      } else if (touchEndX - touchStartX > 45) {
+        prevSlide();
+      }
+      startAuto();
+    }, { passive: true });
   }
 
-  // Keyboard navigation
   window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      prevSlide();
-    } else if (e.key === "ArrowRight") {
-      nextSlide();
-    }
+    if (e.key === "ArrowLeft") prevSlide();
+    if (e.key === "ArrowRight") nextSlide();
   });
 
-  startAutoRotation();
+  startAuto();
 }
 
 // =============================================================================
 // 10. PRODUCT DETAILS QUICK-VIEW MODAL
 // =============================================================================
 let modalCurrentQty = 1;
+let activeModalProductId = null;
 
 function openProductModal(productId) {
   const product = PRODUCTS_CATALOGUE.find(p => p.id === productId);
   if (!product) return;
 
+  activeModalProductId = productId;
   modalCurrentQty = 1;
-
   const modalEl = document.getElementById("productModal");
   if (!modalEl) return;
 
@@ -1018,12 +1048,7 @@ function openProductModal(productId) {
 
   modalEl.innerHTML = `
     <div class="modal-card">
-      <button type="button" class="modal-close-btn" onclick="closeProductModal()" aria-label="Close modal">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+      <button type="button" class="modal-close-btn" onclick="closeProductModal()" aria-label="Close modal">✕</button>
       <div class="modal-grid">
         <div class="modal-image-col">
           <img 
@@ -1077,9 +1102,13 @@ function openProductModal(productId) {
 }
 
 function changeModalQty(delta) {
-  modalCurrentQty = Math.max(1, modalCurrentQty + delta);
+  modalCurrentQty = Math.max(1, Number(modalCurrentQty) + Number(delta));
   const qtyEl = document.getElementById("modalQtyVal");
   if (qtyEl) qtyEl.textContent = modalCurrentQty;
+  const waBtn = document.getElementById("modalWhatsAppBtn");
+  if (waBtn && activeModalProductId) {
+    waBtn.href = getProductWhatsAppUrl(activeModalProductId, modalCurrentQty);
+  }
 }
 
 function addModalItemToCart(productId) {
@@ -1094,7 +1123,7 @@ function closeProductModal() {
 }
 
 // =============================================================================
-// 11. BLOG ARTICLE MODAL
+// 11. BLOG ARTICLE MODAL READER
 // =============================================================================
 function openBlogArticleModal(articleId) {
   const article = BLOG_ARTICLES.find(a => a.id === articleId);
@@ -1105,12 +1134,7 @@ function openBlogArticleModal(articleId) {
 
   modalEl.innerHTML = `
     <div class="modal-card blog-modal-card">
-      <button type="button" class="modal-close-btn" onclick="closeBlogModal()" aria-label="Close article">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
+      <button type="button" class="modal-close-btn" onclick="closeBlogModal()" aria-label="Close article">✕</button>
       <div class="blog-modal-header">
         <span class="blog-category-tag">${article.category} · ${article.date}</span>
         <h2 class="blog-modal-title">${article.title}</h2>
@@ -1120,7 +1144,7 @@ function openBlogArticleModal(articleId) {
       </div>
       <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
         <span style="font-size: 0.875rem; color: #64748b;">Have tech questions in Kapsabet?</span>
-        <a href="https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello World Electronics! I read your tech guide (' + article.title + ') and wanted to ask about available products.')}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp">
+        <a href="https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello World Electronics! I read your tech guide (' + article.title + ') and wanted advice on purchasing.')}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp">
           Ask on WhatsApp
         </a>
       </div>
@@ -1138,7 +1162,7 @@ function closeBlogModal() {
 }
 
 // =============================================================================
-// 12. CART DRAWER UI & CHECKOUT
+// 12. SHOPPING CART DRAWER UI
 // =============================================================================
 function openCartDrawer() {
   const overlay = document.getElementById("cartDrawerOverlay");
@@ -1248,16 +1272,7 @@ function checkoutCartViaWhatsApp() {
     showToast("Your cart is empty");
     return;
   }
-  window.open(url, "_blank");
-}
-
-function updateCartBadge() {
-  const count = getCartTotalCount();
-  const badge = document.getElementById("headerCartBadge");
-  if (badge) {
-    badge.textContent = count;
-    badge.style.display = count > 0 ? "flex" : "none";
-  }
+  openWhatsAppLink(url);
 }
 
 // =============================================================================
@@ -1292,7 +1307,6 @@ function initFAQ() {
     btn.addEventListener("click", () => {
       const isActive = item.classList.contains("active");
 
-      // Close all others
       faqItems.forEach(other => {
         other.classList.remove("active");
         const otherAnswer = other.querySelector(".faq-answer");
@@ -1332,14 +1346,48 @@ function initMobileMenu() {
   if (closeBtn) closeBtn.addEventListener("click", closeMenu);
   if (overlay) overlay.addEventListener("click", closeMenu);
 
-  // Close menu when clicking navigation links
   document.querySelectorAll(".mobile-nav-link").forEach(link => {
     link.addEventListener("click", closeMenu);
   });
 }
 
+function initNavScrollSpy() {
+  const navLinks = document.querySelectorAll(".main-nav-link");
+  const sectionIds = ["hero", "categories", "deals", "collection", "order-section", "tech-corner", "reviews-section", "faq", "location"];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  function updateActiveLink() {
+    const scrollPos = window.scrollY + 120;
+    let currentId = "";
+
+    sections.forEach(sec => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = sec.getAttribute("id");
+      }
+    });
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute("href");
+        link.classList.toggle("active", href === `#${currentId}`);
+      });
+    }
+  }
+
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+}
+
 // =============================================================================
-// 16. SEARCH SYNC & EVENT LISTENERS
+// 16. LIVE SEARCH LISTENERS
 // =============================================================================
 function initSearchListeners() {
   const headerInput = document.getElementById("headerSearchInput");
@@ -1379,7 +1427,6 @@ function initSearchListeners() {
     });
   }
 
-  // Filter Buttons
   document.querySelectorAll(".filter-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const cat = btn.getAttribute("data-category");
@@ -1387,7 +1434,6 @@ function initSearchListeners() {
     });
   });
 
-  // Category Nav Links
   document.querySelectorAll(".category-nav-link").forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -1398,7 +1444,7 @@ function initSearchListeners() {
 }
 
 // =============================================================================
-// 17. GLOBAL ESCAPE KEY LISTENER & MODAL OVERLAY CLICK
+// 17. GLOBAL ESCAPE & BACKDROP MODAL LISTENERS
 // =============================================================================
 function initGlobalModalListeners() {
   window.addEventListener("keydown", (e) => {
@@ -1406,6 +1452,7 @@ function initGlobalModalListeners() {
       closeProductModal();
       closeBlogModal();
       closeCartDrawer();
+      closeReceiptModal();
     }
   });
 
@@ -1427,244 +1474,24 @@ function initGlobalModalListeners() {
   if (cartOverlay) {
     cartOverlay.addEventListener("click", closeCartDrawer);
   }
-}
 
-// =============================================================================
-// 18. INITIALIZE WEBSITE ON DOM READY
-// =============================================================================
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Load cart
-  loadCart();
-  updateCartBadge();
-
-  // 2. Set dynamic year
-  const yearEl = document.getElementById("copyrightYear");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  // 3. Populate sections
-  populateHotDeals();
-  populateLatestArrivals();
-  populateCustomerFavourites();
-  renderMasterCollection();
-
-  // 4. Initialize interactions
-  initCarousel();
-  initFAQ();
-  initMobileMenu();
-  initSearchListeners();
-  initGlobalModalListeners();
-});
-
-
-// =============================================================================
-// 19. MULTI-PAGE EXTENSION ENGINE: PDP, ORDER FORM, REVIEWS & BLOG SINGLE
-// =============================================================================
-
-// --- Review Store & Initial Data ---
-const REVIEWS_STORAGE_KEY = "we_kapsabet_reviews_v1";
-
-const INITIAL_REVIEWS = [
-  {
-    id: "rev-1",
-    name: "Brian Kipchumba",
-    location: "Kapsabet Town",
-    product: "Samsung Galaxy A-Series Smartphone",
-    rating: 5,
-    date: "Recent Customer",
-    comment: "Bought my Samsung A-series phone here last week. Genuine product with good camera clarity and strong battery. They set up my WhatsApp and screen protector right at the shop."
-  },
-  {
-    id: "rev-2",
-    name: "Mercy Jepkemboi",
-    location: "Near Baraton University",
-    product: "HP Core i5 Business Laptop",
-    rating: 5,
-    date: "Verified Student",
-    comment: "I needed a durable laptop for my university coursework. The Core i5 speed is super fast and battery lasts through long lectures. Smooth WhatsApp ordering and pickup!"
-  },
-  {
-    id: "rev-3",
-    name: "Dennis Rotich",
-    location: "Chepterit, Nandi County",
-    product: "20,000mAh Dual Fast Power Bank",
-    rating: 5,
-    date: "Verified Buyer",
-    comment: "A lifesaver during blackouts. Charges my smartphone 4 times completely and the GaN fast charge port is very fast. Definitely recommend World Electronics."
-  },
-  {
-    id: "rev-4",
-    name: "Faith Chebet",
-    location: "Kapsabet CBD",
-    product: "3.1 Channel Bluetooth Home Theatre",
-    rating: 5,
-    date: "Recent Customer",
-    comment: "The sound clarity and bass are unbelievable for the price. Tested it right at the shop before paying. Best electronics shop in Kapsabet."
-  }
-];
-
-function getStoredReviews() {
-  try {
-    const raw = localStorage.getItem(REVIEWS_STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-    }
-  } catch (e) {
-    console.warn("Storage restricted for reviews", e);
-  }
-  return [...INITIAL_REVIEWS];
-}
-
-function saveStoredReviews(reviews) {
-  try {
-    localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(reviews));
-  } catch (e) {
-    console.warn("Could not save reviews", e);
+  const receiptOverlay = document.getElementById("receiptModal");
+  if (receiptOverlay) {
+    receiptOverlay.addEventListener("click", (e) => {
+      if (e.target === receiptOverlay) closeReceiptModal();
+    });
   }
 }
 
-// --- Product Detail Page (PDP) Renderer ---
-function initProductDetailPage() {
-  const container = document.getElementById("pdpContainer");
-  if (!container) return;
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get("id") || PRODUCTS_CATALOGUE[0].id;
-  const product = PRODUCTS_CATALOGUE.find(p => p.id === productId) || PRODUCTS_CATALOGUE[0];
-
-  document.title = `${product.name} | World Electronics Kapsabet`;
-
-  const oldPriceHTML = product.originalPrice 
-    ? `<span class="modal-price-old tabular-nums">${formatKSh(product.originalPrice)}</span>` 
-    : "";
-
-  const specsRows = product.specs.map(spec => `
-    <tr>
-      <td>${spec.split(":")[0] || "Feature"}</td>
-      <td>${spec.split(":")[1] || spec}</td>
-    </tr>
-  `).join("");
-
-  const related = PRODUCTS_CATALOGUE
-    .filter(p => p.categorySlug === product.categorySlug && p.id !== product.id)
-    .slice(0, 4);
-
-  const relatedHTML = related.length > 0 
-    ? related.map(p => renderProductCardHTML(p)).join("")
-    : PRODUCTS_CATALOGUE.slice(0, 4).map(p => renderProductCardHTML(p)).join("");
-
-  container.innerHTML = `
-    <div class="page-breadcrumbs" style="margin-bottom: 2rem;">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <a href="products.html">Products</a>
-      <span>/</span>
-      <a href="products.html?category=${product.categorySlug}">${product.category}</a>
-      <span>/</span>
-      <span style="color: #64748b;">${product.name}</span>
-    </div>
-
-    <div class="pdp-grid">
-      <div class="pdp-gallery-card">
-        <img 
-          src="${product.image}" 
-          alt="${product.name}" 
-          class="pdp-gallery-img"
-          onerror="handleImageError(this, '${product.category}')"
-        />
-      </div>
-
-      <div class="pdp-info-panel">
-        <span class="product-category-text" style="font-size: 0.875rem; margin-bottom: 0.5rem;">${product.category}</span>
-        <h1 class="page-hero-title" style="color: var(--color-primary); font-size: 2.125rem; margin-bottom: 1rem;">${product.name}</h1>
-        
-        <div class="product-price-row" style="margin-bottom: 1.5rem;">
-          <span class="modal-price-current tabular-nums" style="font-size: 2rem;">${formatKSh(product.price)}</span>
-          ${oldPriceHTML}
-          ${product.discountBadge ? `<span class="product-badge badge-deal" style="margin-left: 0.5rem;">${product.discountBadge}</span>` : ""}
-        </div>
-
-        <p class="modal-description" style="font-size: 1.0625rem; line-height: 1.7; margin-bottom: 1.75rem;">
-          ${product.description}
-        </p>
-
-        <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.75rem;">Key Specifications</h3>
-        <table class="pdp-specs-table">
-          <tbody>
-            ${specsRows}
-            <tr>
-              <td>Availability</td>
-              <td><span style="color: #059669; font-weight: 700;">● In Stock at Kapsabet Shop</span></td>
-            </tr>
-            <tr>
-              <td>Pickup & Hours</td>
-              <td>Daily 8:00 AM–8:00 PM in Kapsabet</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Purchase & Order Actions -->
-        <div style="display: flex; flex-direction: column; gap: 0.875rem; margin-top: auto;">
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <div class="quantity-stepper" style="height: 44px; padding: 0 4px;">
-              <button type="button" class="stepper-btn" onclick="changePdpQty(-1)" style="width: 36px; height: 36px;">-</button>
-              <span class="stepper-val" id="pdpQtyVal" style="min-width: 36px; font-size: 1rem;">1</span>
-              <button type="button" class="stepper-btn" onclick="changePdpQty(1)" style="width: 36px; height: 36px;">+</button>
-            </div>
-            <button type="button" class="btn btn-navy btn-lg" style="flex: 1;" onclick="addPdpToCart('${product.id}')">
-              Add to Cart
-            </button>
-          </div>
-
-          <a href="${getProductWhatsAppUrl(product.id)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
-            </svg>
-            Instant WhatsApp Enquiry
-          </a>
-
-          <a href="order.html?product=${product.id}" class="btn btn-outline btn-lg" style="border-color: var(--color-secondary); color: var(--color-secondary);">
-            Open in Interactive Order Form →
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Related Products -->
-    <div style="margin-top: 5rem; padding-top: 3.5rem; border-top: 1px solid var(--color-border);">
-      <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
-        <span class="section-kicker">Recommendations</span>
-        <h2 class="section-title" style="font-size: 1.75rem;">Related Electronics You May Like</h2>
-      </div>
-      <div class="products-grid">
-        ${relatedHTML}
-      </div>
-    </div>
-  `;
-}
-
-let pdpCurrentQty = 1;
-function changePdpQty(delta) {
-  pdpCurrentQty = Math.max(1, pdpCurrentQty + delta);
-  const el = document.getElementById("pdpQtyVal");
-  if (el) el.textContent = pdpCurrentQty;
-}
-
-function addPdpToCart(productId) {
-  addToCart(productId, pdpCurrentQty);
-}
-
-// --- Interactive Order Form Engine (order.html) ---
+// =============================================================================
+// 18. INTERACTIVE ORDER FORM ENGINE (FOR HOMEPAGE OR ORDER.HTML)
+// =============================================================================
 let orderFormItems = [];
 
-function initOrderFormPage() {
-  const formEl = document.getElementById("interactiveOrderForm");
-  if (!formEl) return;
+function initOrderForm() {
+  const tableBody = document.getElementById("orderItemsTableBody");
+  if (!tableBody) return;
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const directProductId = urlParams.get("product");
-
-  // Populate product dropdown selector
   const selectEl = document.getElementById("orderProductSelect");
   if (selectEl) {
     selectEl.innerHTML = `
@@ -1675,32 +1502,25 @@ function initOrderFormPage() {
     `;
   }
 
-  // Preload items: either from direct parameter or existing cart
-  if (directProductId) {
-    const p = PRODUCTS_CATALOGUE.find(x => x.id === directProductId);
-    if (p) {
-      orderFormItems = [{ id: p.id, name: p.name, price: p.price, quantity: 1 }];
-    }
-  } else if (cart.length > 0) {
+  // Preload from cart if cart has items, otherwise default to first item
+  if (cart.length > 0) {
     orderFormItems = cart.map(i => ({ id: i.id, name: i.name, price: i.price, quantity: i.quantity }));
-  } else {
-    // Default to first product as suggestion
+  } else if (orderFormItems.length === 0) {
     const first = PRODUCTS_CATALOGUE[0];
     orderFormItems = [{ id: first.id, name: first.name, price: first.price, quantity: 1 }];
   }
 
   renderOrderFormItemsTable();
 
-  // Add Item Button Listener
   const addItemBtn = document.getElementById("orderAddItemBtn");
-  if (addItemBtn) {
-    addItemBtn.addEventListener("click", () => {
-      const selectedId = selectEl.value;
-      if (!selectedId) {
+  if (addItemBtn && selectEl) {
+    addItemBtn.onclick = () => {
+      const selId = selectEl.value;
+      if (!selId) {
         showToast("Please choose a product from the dropdown");
         return;
       }
-      const p = PRODUCTS_CATALOGUE.find(x => x.id === selectedId);
+      const p = PRODUCTS_CATALOGUE.find(x => x.id === selId);
       if (!p) return;
 
       const existing = orderFormItems.find(x => x.id === p.id);
@@ -1712,10 +1532,9 @@ function initOrderFormPage() {
       selectEl.value = "";
       renderOrderFormItemsTable();
       showToast(`Added ${p.name}`);
-    });
+    };
   }
 
-  // Radio delivery toggles
   document.querySelectorAll(".radio-card").forEach(card => {
     card.addEventListener("click", () => {
       const radio = card.querySelector("input[type='radio']");
@@ -1723,21 +1542,18 @@ function initOrderFormPage() {
         radio.checked = true;
         document.querySelectorAll(".radio-card").forEach(c => c.classList.remove("active"));
         card.classList.add("active");
-        updateOrderSummaryDisplay();
       }
     });
   });
 
-  // Submit via WhatsApp
   const submitWaBtn = document.getElementById("submitOrderViaWhatsAppBtn");
   if (submitWaBtn) {
-    submitWaBtn.addEventListener("click", submitOrderViaWhatsApp);
+    submitWaBtn.onclick = submitOrderViaWhatsApp;
   }
 
-  // Generate Receipt
-  const generateReceiptBtn = document.getElementById("generateReceiptBtn");
-  if (generateReceiptBtn) {
-    generateReceiptBtn.addEventListener("click", generatePrintableReceipt);
+  const receiptBtn = document.getElementById("generateReceiptBtn");
+  if (receiptBtn) {
+    receiptBtn.onclick = generatePrintableReceipt;
   }
 }
 
@@ -1749,7 +1565,7 @@ function renderOrderFormItemsTable() {
     tbody.innerHTML = `
       <tr>
         <td colspan="4" style="text-align: center; color: #94a3b8; padding: 2rem;">
-          No items selected. Use the dropdown above to choose electronics.
+          No items selected. Choose an item from the dropdown above.
         </td>
       </tr>
     `;
@@ -1759,9 +1575,7 @@ function renderOrderFormItemsTable() {
 
   tbody.innerHTML = orderFormItems.map(item => `
     <tr>
-      <td>
-        <strong>${item.name}</strong>
-      </td>
+      <td><strong>${item.name}</strong></td>
       <td class="tabular-nums">${formatKSh(item.price)}</td>
       <td>
         <div class="quantity-stepper" style="display: inline-flex;">
@@ -1818,43 +1632,38 @@ function submitOrderViaWhatsApp() {
     return;
   }
 
-  const nameInput = document.getElementById("orderCustomerName");
-  const phoneInput = document.getElementById("orderCustomerPhone");
-  const locationInput = document.getElementById("orderCustomerLocation");
-  const notesInput = document.getElementById("orderCustomerNotes");
-  const deliveryType = document.querySelector("input[name='deliveryMethod']:checked")?.value || "Shop Pickup";
+  const name = document.getElementById("orderCustomerName")?.value.trim() || "Customer";
+  const phone = document.getElementById("orderCustomerPhone")?.value.trim() || "Not specified";
+  const location = document.getElementById("orderCustomerLocation")?.value.trim() || "Kapsabet Town";
+  const notes = document.getElementById("orderCustomerNotes")?.value.trim() || "";
+  const deliveryType = document.querySelector("input[name='deliveryMethod']:checked")?.value || "In-Store Pickup";
   const paymentPref = document.getElementById("orderPaymentPreference")?.value || "M-Pesa";
-
-  const name = nameInput?.value.trim() || "Customer";
-  const phone = phoneInput?.value.trim() || "Not specified";
-  const location = locationInput?.value.trim() || "Kapsabet Town";
-  const notes = notesInput?.value.trim() || "";
 
   const itemsList = orderFormItems.map((item, idx) => {
     return `${idx + 1}. *${item.name}* x ${item.quantity} — ${formatKSh(item.price)} each (Total: ${formatKSh(item.price * item.quantity)})`;
   }).join("\n");
 
   const message = [
-    `Hello ${STORE_CONFIG.name}!`,
+    `Hello World Electronics!`,
     `I have placed an order using your interactive order form:`,
     ``,
     `*CUSTOMER DETAILS:*`,
     `• Name: ${name}`,
     `• Phone: ${phone}`,
-    `• Area / Location: ${location}`,
-    `• Method: ${deliveryType}`,
+    `• Location / Area: ${location}`,
+    `• Delivery Method: ${deliveryType}`,
     `• Preferred Payment: ${paymentPref}`,
     ``,
     `*ORDERED ITEMS:*`,
     itemsList,
     ``,
     `*Estimated Total:* ${formatKSh(getOrderFormSubtotal())}`,
-    notes ? `*Special Instructions:* ${notes}` : null,
+    notes ? `*Special Notes:* ${notes}` : null,
     ``,
     `Please confirm product availability and when I can receive/pick up the items in Kapsabet.`
   ].filter(l => l !== null).join("\n");
 
-  window.open(`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+  openWhatsAppLink(`https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`);
 }
 
 function generatePrintableReceipt() {
@@ -1933,16 +1742,78 @@ function closeReceiptModal() {
   document.body.classList.remove("modal-open");
 }
 
-// --- Customer Reviews Engine (reviews.html) ---
+// =============================================================================
+// 19. REVIEWS SYSTEM
+// =============================================================================
+const REVIEWS_STORAGE_KEY = "we_kapsabet_reviews_v1";
+const INITIAL_REVIEWS = [
+  {
+    id: "rev-1",
+    name: "Brian Kipchumba",
+    location: "Kapsabet Town",
+    product: "Samsung Galaxy A-Series Smartphone",
+    rating: 5,
+    date: "Recent Customer",
+    comment: "Bought my Samsung A-series phone here last week. Genuine product with good camera clarity and strong battery. They set up my WhatsApp and screen protector right at the shop."
+  },
+  {
+    id: "rev-2",
+    name: "Mercy Jepkemboi",
+    location: "Near Baraton University",
+    product: "HP Core i5 Business Laptop",
+    rating: 5,
+    date: "Verified Student",
+    comment: "I needed a durable laptop for my university coursework. The Core i5 speed is super fast and battery lasts through long lectures. Smooth WhatsApp ordering and pickup!"
+  },
+  {
+    id: "rev-3",
+    name: "Dennis Rotich",
+    location: "Chepterit, Nandi County",
+    product: "20,000mAh Dual Fast Power Bank",
+    rating: 5,
+    date: "Verified Buyer",
+    comment: "A lifesaver during blackouts. Charges my smartphone 4 times completely and the GaN fast charge port is very fast. Definitely recommend World Electronics."
+  },
+  {
+    id: "rev-4",
+    name: "Faith Chebet",
+    location: "Kapsabet CBD",
+    product: "3.1 Channel Bluetooth Home Theatre",
+    rating: 5,
+    date: "Recent Customer",
+    comment: "The sound clarity and bass are unbelievable for the price. Tested it right at the shop before paying. Best electronics shop in Kapsabet."
+  }
+];
+
+function getStoredReviews() {
+  try {
+    const raw = localStorage.getItem(REVIEWS_STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch (e) {
+    console.warn("Storage restricted for reviews", e);
+  }
+  return [...INITIAL_REVIEWS];
+}
+
+function saveStoredReviews(reviews) {
+  try {
+    localStorage.setItem(REVIEWS_STORAGE_KEY, JSON.stringify(reviews));
+  } catch (e) {
+    console.warn("Could not save reviews", e);
+  }
+}
+
 let userSelectedRating = 5;
 
-function initReviewsPage() {
+function initReviews() {
   const listEl = document.getElementById("reviewsListContainer");
   if (!listEl) return;
 
   renderReviewsList();
 
-  // Star Rating Selector in submission form
   const stars = document.querySelectorAll(".star-rating-selector .star");
   stars.forEach(star => {
     star.addEventListener("click", () => {
@@ -1954,7 +1825,6 @@ function initReviewsPage() {
     });
   });
 
-  // Review Form Submit
   const form = document.getElementById("customerReviewForm");
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -2005,9 +1875,7 @@ function renderReviewsList() {
           <h4 class="reviewer-name">${r.name}</h4>
           <span class="reviewer-location">${r.location} · ${r.date}</span>
         </div>
-        <div class="verified-buyer-badge">
-          ✓ Verified Customer
-        </div>
+        <div class="verified-buyer-badge">✓ Verified Customer</div>
       </div>
       <div class="stars-display">
         ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}
@@ -2020,97 +1888,31 @@ function renderReviewsList() {
   `).join("");
 }
 
-// --- Dedicated Products Page Filter & Grid ---
-function initProductsPage() {
-  const container = document.getElementById("allProductsGrid");
-  if (!container) return;
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const initialCategory = urlParams.get("category");
-  if (initialCategory) {
-    currentFilterCategory = initialCategory;
-  }
-
-  // Update filter buttons if any
-  document.querySelectorAll(".filter-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.getAttribute("data-category") === currentFilterCategory);
-  });
-
-  renderMasterCollection();
-}
-
-// --- Single Blog Article Reader (blog-single.html) ---
-function initBlogSinglePage() {
-  const container = document.getElementById("blogSingleContainer");
-  if (!container) return;
-
-  const urlParams = new URLSearchParams(window.location.search);
-  const articleId = urlParams.get("id") || BLOG_ARTICLES[0].id;
-  const article = BLOG_ARTICLES.find(a => a.id === articleId) || BLOG_ARTICLES[0];
-
-  document.title = `${article.title} | World Electronics Kapsabet`;
-
-  container.innerHTML = `
-    <div class="page-breadcrumbs" style="margin-bottom: 2rem;">
-      <a href="index.html">Home</a>
-      <span>/</span>
-      <a href="blog.html">Tech Guides</a>
-      <span>/</span>
-      <span style="color: #64748b;">${article.category}</span>
-    </div>
-
-    <article style="max-width: 820px; margin: 0 auto; background-color: #ffffff; padding: 2.5rem; border-radius: 20px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-      <div style="margin-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.25rem;">
-        <span class="blog-category-tag">${article.category} · ${article.date}</span>
-        <h1 class="page-hero-title" style="color: var(--color-primary); font-size: 2.25rem; margin-top: 0.5rem; margin-bottom: 0.75rem;">
-          ${article.title}
-        </h1>
-        <p style="font-size: 1.0625rem; color: #64748b;">Published by World Electronics Kapsabet Tech Editorial Desk</p>
-      </div>
-
-      <img 
-        src="${article.image}" 
-        alt="${article.title}" 
-        style="width: 100%; height: 380px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem;"
-        onerror="handleImageError(this, '${article.category}')"
-      />
-
-      <div class="blog-modal-content" style="font-size: 1.0625rem; line-height: 1.8;">
-        ${article.content}
-      </div>
-
-      <div style="margin-top: 3rem; padding: 1.75rem; background-color: var(--color-bg-alt); border-radius: 12px; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
-        <div>
-          <h4 style="font-size: 1.125rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.25rem;">Looking for recommended devices in Kapsabet?</h4>
-          <p style="font-size: 0.875rem; color: #64748b;">Visit World Electronics or text our tech assistants directly on WhatsApp.</p>
-        </div>
-        <a href="https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello World Electronics! I read your tech guide (' + article.title + ') and wanted advice on purchasing.')}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-          Ask on WhatsApp
-        </a>
-      </div>
-    </article>
-  `;
-}
-
-// --- Active Nav Link Highlighter ---
-function highlightActiveNav() {
-  const path = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".main-nav-link").forEach(link => {
-    const href = link.getAttribute("href");
-    if (href === path || (path === "" && href === "index.html")) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-}
-
-// Update initialization to run multi-page detectors
+// =============================================================================
+// 20. INITIALIZATION ON DOM READY
+// =============================================================================
 document.addEventListener("DOMContentLoaded", () => {
-  highlightActiveNav();
-  initProductDetailPage();
-  initOrderFormPage();
-  initReviewsPage();
-  initProductsPage();
-  initBlogSinglePage();
+  // 1. Initialize persistent cart
+  loadCart();
+  updateCartBadge();
+
+  // 2. Set dynamic copyright year
+  const yearEl = document.getElementById("copyrightYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // 3. Populate product sections
+  populateHotDeals();
+  populateLatestArrivals();
+  populateCustomerFavourites();
+  renderMasterCollection();
+
+  // 4. Initialize interactions
+  initCarousel();
+  initFAQ();
+  initMobileMenu();
+  initNavScrollSpy();
+  initSearchListeners();
+  initGlobalModalListeners();
+  initOrderForm();
+  initReviews();
 });
