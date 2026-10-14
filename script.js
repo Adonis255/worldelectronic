@@ -771,7 +771,7 @@ function renderProductCardHTML(product) {
 
   return `
     <div class="product-card" data-product-id="${product.id}">
-      <div class="product-image-container" onclick="openProductModal('${product.id}')" title="Click for details">
+      <div class="product-image-container" onclick="window.location.href='product-detail.html?id=${product.id}'" title="View ${product.name} details">
         ${badgeHTML ? `<div class="product-badge-group">${badgeHTML}</div>` : ""}
         <img 
           src="${product.image}" 
@@ -780,11 +780,13 @@ function renderProductCardHTML(product) {
           loading="lazy"
           onerror="handleImageError(this, '${product.category}')"
         />
-        <span class="quick-view-btn-hover">Quick View</span>
+        <button type="button" class="quick-view-btn-hover" onclick="event.stopPropagation(); openProductModal('${product.id}')">Quick View</button>
       </div>
       <div class="product-body">
         <span class="product-category-text">${product.category}</span>
-        <h3 class="product-title" onclick="openProductModal('${product.id}')" title="${product.name}">${product.name}</h3>
+        <h3 class="product-title">
+          <a href="product-detail.html?id=${product.id}" title="${product.name}">${product.name}</a>
+        </h3>
         <div class="product-price-row">
           <span class="product-price-current tabular-nums">${formatKSh(product.price)}</span>
           ${oldPriceHTML}
@@ -1351,9 +1353,32 @@ function initMobileMenu() {
   });
 }
 
+function initMultiPageNav() {
+  const currentPath = window.location.pathname.split("/").pop() || "index.html";
+  const cleanCurrent = currentPath === "" ? "index.html" : currentPath;
+
+  document.querySelectorAll(".main-nav-link, .mobile-nav-link").forEach(link => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+    const linkPath = href.split("?")[0].split("#")[0];
+    if (linkPath === cleanCurrent) {
+      link.classList.add("active");
+    } else if (linkPath.endsWith(".html") && linkPath !== cleanCurrent) {
+      link.classList.remove("active");
+    }
+  });
+}
+
 function initNavScrollSpy() {
-  const navLinks = document.querySelectorAll(".main-nav-link");
-  const sectionIds = ["hero", "categories", "deals", "collection", "order-section", "tech-corner", "reviews-section", "faq", "location"];
+  initMultiPageNav();
+
+  const hashNavLinks = Array.from(document.querySelectorAll(".main-nav-link")).filter(link => {
+    const href = link.getAttribute("href");
+    return href && href.startsWith("#");
+  });
+  if (hashNavLinks.length === 0) return;
+
+  const sectionIds = ["hero", "categories", "deals", "why-us", "how-to-order", "faq", "location"];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
   function updateActiveLink() {
@@ -1369,7 +1394,7 @@ function initNavScrollSpy() {
     });
 
     if (currentId) {
-      navLinks.forEach(link => {
+      hashNavLinks.forEach(link => {
         const href = link.getAttribute("href");
         link.classList.toggle("active", href === `#${currentId}`);
       });
@@ -1377,13 +1402,6 @@ function initNavScrollSpy() {
   }
 
   window.addEventListener("scroll", updateActiveLink, { passive: true });
-
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-    });
-  });
 }
 
 // =============================================================================
@@ -1502,8 +1520,14 @@ function initOrderForm() {
     `;
   }
 
-  // Preload from cart if cart has items, otherwise default to first item
-  if (cart.length > 0) {
+  // Preload from URL param if present (e.g. order.html?product=phone-02), otherwise cart, otherwise first product
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramProductId = urlParams.get("product");
+  const paramProduct = paramProductId ? PRODUCTS_CATALOGUE.find(p => p.id === paramProductId) : null;
+
+  if (paramProduct) {
+    orderFormItems = [{ id: paramProduct.id, name: paramProduct.name, price: paramProduct.price, quantity: 1 }];
+  } else if (cart.length > 0) {
     orderFormItems = cart.map(i => ({ id: i.id, name: i.name, price: i.price, quantity: i.quantity }));
   } else if (orderFormItems.length === 0) {
     const first = PRODUCTS_CATALOGUE[0];
@@ -1889,7 +1913,203 @@ function renderReviewsList() {
 }
 
 // =============================================================================
-// 20. INITIALIZATION ON DOM READY
+// 20. MULTI-PAGE ENGINE (PDP, BLOG SINGLE, CATEGORY ROUTING)
+// =============================================================================
+function initCategoryFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const cat = urlParams.get("category");
+  if (cat) {
+    currentFilterCategory = cat;
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-category") === cat);
+    });
+    document.querySelectorAll(".category-nav-link").forEach(link => {
+      link.classList.toggle("active", link.getAttribute("data-category") === cat);
+    });
+    renderMasterCollection();
+  }
+}
+
+let pdpCurrentQty = 1;
+
+function updatePdpQty(delta) {
+  pdpCurrentQty = Math.max(1, Number(pdpCurrentQty) + Number(delta));
+  const el = document.getElementById("pdpQtyVal");
+  if (el) el.textContent = pdpCurrentQty;
+  const waBtn = document.getElementById("pdpWhatsAppBtn");
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id") || "phone-01";
+  if (waBtn) waBtn.href = getProductWhatsAppUrl(productId, pdpCurrentQty);
+}
+
+function addPdpToCart(productId) {
+  addToCart(productId, pdpCurrentQty);
+}
+
+function initProductDetailPage() {
+  const container = document.getElementById("pdpContainer");
+  if (!container) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id") || "phone-01";
+  const product = PRODUCTS_CATALOGUE.find(p => p.id === productId) || PRODUCTS_CATALOGUE[0];
+
+  pdpCurrentQty = 1;
+  document.title = `${product.name} | World Electronics Kapsabet`;
+
+  const oldPriceHTML = product.originalPrice 
+    ? `<span class="modal-price-old tabular-nums">${formatKSh(product.originalPrice)}</span>` 
+    : "";
+
+  const specsListHTML = product.specs && product.specs.length > 0 
+    ? product.specs.map(s => `<li>• ${s}</li>`).join("") 
+    : "";
+
+  const related = PRODUCTS_CATALOGUE
+    .filter(p => p.categorySlug === product.categorySlug && p.id !== product.id)
+    .slice(0, 4);
+
+  const relatedHTML = related.length > 0 ? `
+    <div style="margin-top: 3.5rem;">
+      <h3 style="font-size: 1.5rem; font-weight: 800; color: #101828; margin-bottom: 1.5rem;">Similar in ${product.category}</h3>
+      <div class="product-grid">
+        ${related.map(p => renderProductCardHTML(p)).join("")}
+      </div>
+    </div>
+  ` : "";
+
+  container.innerHTML = `
+    <div class="page-breadcrumbs" style="margin-bottom: 1.5rem;">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="products.html">Products</a>
+      <span>/</span>
+      <a href="products.html?category=${product.categorySlug}">${product.category}</a>
+      <span>/</span>
+      <span>${product.name}</span>
+    </div>
+
+    <div class="pdp-layout">
+      <div class="pdp-gallery-col">
+        <img 
+          src="${product.image}" 
+          alt="${product.name}" 
+          style="max-width: 100%; max-height: 380px; object-fit: contain;"
+          onerror="handleImageError(this, '${product.category}')"
+        />
+      </div>
+
+      <div class="pdp-info-col">
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap;">
+          <span class="product-category-text">${product.category}</span>
+          ${product.discountBadge ? `<span class="product-badge badge-deal">${product.discountBadge}</span>` : ""}
+          ${product.isHotDeal ? `<span class="product-badge badge-deal" style="background:#dc2626;">Hot Deal</span>` : ""}
+        </div>
+
+        <h1 style="font-size: 1.875rem; font-weight: 800; color: var(--color-primary); line-height: 1.25; margin-bottom: 1rem;">${product.name}</h1>
+
+        <div style="display: flex; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem;">
+          <span style="font-size: 2.125rem; font-weight: 800; color: var(--color-primary);" class="tabular-nums">${formatKSh(product.price)}</span>
+          ${oldPriceHTML}
+        </div>
+
+        <p style="color: #475569; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">${product.description}</p>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; margin-bottom: 0.65rem;">Key Specifications</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.4rem; color: #334155; font-size: 0.9375rem;">
+            ${specsListHTML}
+          </ul>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.9375rem; font-weight: 600; color: #475569;">Quantity:</span>
+          <div class="quantity-stepper">
+            <button type="button" class="stepper-btn" onclick="updatePdpQty(-1)">-</button>
+            <span class="stepper-val" id="pdpQtyVal">1</span>
+            <button type="button" class="stepper-btn" onclick="updatePdpQty(1)">+</button>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem;">
+          <button type="button" class="btn btn-navy btn-lg" onclick="addPdpToCart('${product.id}')" style="flex: 1; min-width: 180px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            Add to Cart
+          </button>
+          <a id="pdpWhatsAppBtn" href="${getProductWhatsAppUrl(product.id, 1)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg" style="flex: 1; min-width: 180px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+            </svg>
+            Order on WhatsApp
+          </a>
+          <a href="order.html?product=${product.id}" class="btn btn-outline btn-lg" style="width: 100%;">
+            Customize in Interactive Order Form →
+          </a>
+        </div>
+
+        <div style="background: #f8fafc; border-radius: var(--radius-md); padding: 1rem 1.25rem; font-size: 0.875rem; color: #64748b; line-height: 1.5; border: 1px solid var(--color-border-subtle);">
+          📍 Available for in-store collection or local delivery in Kapsabet, Nandi County. All products undergo physical inspection before handover.
+        </div>
+      </div>
+    </div>
+
+    ${relatedHTML}
+  `;
+}
+
+function initBlogSinglePage() {
+  const container = document.getElementById("blogSingleContainer");
+  if (!container) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const articleId = urlParams.get("id") || "blog-01";
+  const article = BLOG_ARTICLES.find(a => a.id === articleId) || BLOG_ARTICLES[0];
+
+  document.title = `${article.title} | World Electronics Kapsabet`;
+
+  container.innerHTML = `
+    <div class="page-breadcrumbs" style="margin-bottom: 2rem;">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="blog.html">Tech Guides</a>
+      <span>/</span>
+      <span>${article.category}</span>
+    </div>
+
+    <article style="max-width: 780px; margin: 0 auto; background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);">
+      <img 
+        src="${article.image}" 
+        alt="${article.title}" 
+        style="width: 100%; height: 360px; object-fit: cover;"
+        onerror="handleImageError(this, '${article.category}')"
+      />
+      <div style="padding: 2.5rem 2rem;">
+        <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 1rem;">
+          <span class="blog-category-tag">${article.category}</span>
+          <span style="color: #94a3b8;">·</span>
+          <span style="font-size: 0.8125rem; color: #64748b;">${article.date}</span>
+        </div>
+        <h1 style="font-size: 2rem; font-weight: 800; color: var(--color-primary); line-height: 1.25; margin-bottom: 1.5rem;">${article.title}</h1>
+        <div class="blog-modal-content" style="font-size: 1.0625rem; line-height: 1.7; color: #334155;">
+          ${article.content}
+        </div>
+        <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <span style="font-size: 0.9375rem; color: #64748b;">Need personalized advice on electronics in Kapsabet?</span>
+          <a href="https://wa.me/${STORE_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hello World Electronics! I read your tech guide (' + article.title + ') and wanted advice on purchasing.')}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            Ask Advice on WhatsApp
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+// =============================================================================
+// 21. INITIALIZATION ON DOM READY
 // =============================================================================
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Initialize persistent cart
@@ -1915,4 +2135,10 @@ document.addEventListener("DOMContentLoaded", () => {
   initGlobalModalListeners();
   initOrderForm();
   initReviews();
+
+  // 5. Multi-Page Routing
+  initCategoryFromUrl();
+  initProductDetailPage();
+  initBlogSinglePage();
 });
+

@@ -3,62 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>World Electronics Kapsabet | Electronics & Gadgets in Kenya</title>
-  <meta name="description" content="Discover smartphones, computers, entertainment systems, and everyday tech essentials at World Electronics Kapsabet, Kenya. Fast WhatsApp ordering and collection." />
+  <title>World Electronics Kapsabet | Smartphones, Laptops, TVs & Accessories in Kenya</title>
+  <meta name="description" content="World Electronics in Kapsabet, Nandi County, Kenya. Browse smartphones, laptops, smart TVs, audio systems, power solutions, and accessories with instant WhatsApp ordering and local delivery." />
   <meta name="theme-color" content="#101828" />
   <link rel="canonical" href="https://world-electronics.kyte.site/en" />
 
-  <!-- Open Graph / Facebook -->
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="World Electronics Kapsabet | Kenya" />
+  <meta property="og:description" content="Your trusted electronics destination in Kapsabet, Nandi County. Quality smartphones, laptops, 4K TVs, solar, and accessories." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="World Electronics Kapsabet | Electronics & Gadgets in Kenya" />
-  <meta property="og:description" content="Discover smartphones, computers, entertainment systems, and everyday tech essentials at World Electronics Kapsabet. Fast WhatsApp ordering and collection." />
-  <meta property="og:site_name" content="World Electronics Kapsabet" />
+  <meta property="og:url" content="https://world-electronics.kyte.site/en" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1200&q=80" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="World Electronics Kapsabet | Electronics & Gadgets in Kenya" />
-  <meta name="twitter:description" content="Discover smartphones, computers, entertainment systems, and everyday tech essentials at World Electronics Kapsabet." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1200&q=80" />
-
-  <!-- Fonts & Stylesheet -->
+  <!-- Fonts & Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css" />
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ElectronicsStore",
-    "name": "World Electronics",
-    "description": "Electronics shop offering smartphones, computers, TVs, audio systems, power accessories, and tech essentials in Kapsabet, Kenya.",
-    "telephone": "+254715071820",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kapsabet",
-      "addressRegion": "Nandi County",
-      "addressCountry": "KE"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-        ],
-        "opens": "08:00",
-        "closes": "20:00"
-      }
-    ],
-    "hasMap": "https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9",
-    "priceRange": "KSh"
-  }
-  </script>
 </head>
 <body>
 
-  <!-- TOP ANNOUNCEMENT BAR -->
+  <!-- TOP PROMOTIONAL AD BAR -->
+  <div class="top-ad-bar" id="topAdBar">
+    <div class="top-ad-inner">
+      <span class="top-ad-badge">📢 SPECIAL ADVERT</span>
+      <span><strong>Weekend Mega Clearance:</strong> Free Screen Protector &amp; Case with every Smartphone Purchase in Kapsabet!</span>
+      <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20saw%20your%20promotional%20ad%20and%20want%20to%20order." target="_blank" rel="noopener noreferrer" class="top-ad-link">
+        Claim Ad Deal on WhatsApp →
+      </a>
+      <button type="button" class="top-ad-close" onclick="document.getElementById('topAdBar').style.display='none'" aria-label="Close Advertisement">✕</button>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-bar-left">
@@ -92,7 +69,7 @@
   <header class="site-header">
     <div class="container header-main">
       <!-- Brand Logo -->
-      <a href="#hero" class="brand-logo" aria-label="World Electronics Homepage">
+      <a href="index.html" class="brand-logo" aria-label="World Electronics Homepage">
         <div class="brand-icon-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
@@ -108,20 +85,23 @@
 
       <!-- Desktop Navigation Links -->
       <ul class="main-nav-links">
-        <li><a href="#hero" class="main-nav-link active">Home</a></li>
-        <li><a href="#categories" class="main-nav-link">Categories</a></li>
-        <li><a href="#deals" class="main-nav-link">Hot Deals</a></li>
-        <li><a href="#collection" class="main-nav-link">Catalogue</a></li>
-        <li><a href="#order-section" class="main-nav-link">Order Online</a></li>
-        <li><a href="#tech-corner" class="main-nav-link">Tech Guides</a></li>
-        <li><a href="#reviews-section" class="main-nav-link">Reviews</a></li>
-        <li><a href="#faq" class="main-nav-link">FAQ</a></li>
-        <li><a href="#location" class="main-nav-link">Location</a></li>
+        <li><a href="index.html" class="main-nav-link active">Home</a></li>
+        <li><a href="products.html" class="main-nav-link">Products</a></li>
+        <li><a href="order.html" class="main-nav-link">Order Form</a></li>
+        <li><a href="about.html" class="main-nav-link">About Us</a></li>
+        <li><a href="blog.html" class="main-nav-link">Tech Guides</a></li>
+        <li><a href="reviews.html" class="main-nav-link">Reviews</a></li>
+        <li><a href="contact.html" class="main-nav-link">Contact</a></li>
       </ul>
 
       <!-- Header Actions -->
       <div class="header-actions">
-        <!-- WhatsApp Quick Order Button -->
+        <!-- Direct Order Form CTA -->
+        <a href="order.html" class="btn btn-navy" style="font-size: 0.8125rem;">
+          Order Form
+        </a>
+
+        <!-- WhatsApp Quick Action -->
         <a 
           href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20order." 
           target="_blank" 
@@ -132,7 +112,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
           </svg>
-          Order on WhatsApp
+          WhatsApp
         </a>
 
         <!-- Cart Button -->
@@ -171,15 +151,15 @@
     <div class="category-bar">
       <div class="container">
         <ul class="category-nav-list">
-          <li><a href="#collection" class="category-nav-link active" data-category="all">All Products (26)</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="smartphones">Smartphones</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="laptops">Laptops & Computers</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="tvs">TVs & Entertainment</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="audio">Audio & Speakers</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="wearables">Smartwatches</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="accessories">Phone Accessories</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="power">Power & Charging</a></li>
-          <li><a href="#collection" class="category-nav-link" data-category="home">Home Electronics</a></li>
+          <li><a href="products.html" class="category-nav-link active">All Products (26)</a></li>
+          <li><a href="products.html?category=smartphones" class="category-nav-link">Smartphones</a></li>
+          <li><a href="products.html?category=laptops" class="category-nav-link">Laptops & Computers</a></li>
+          <li><a href="products.html?category=tvs" class="category-nav-link">TVs & Entertainment</a></li>
+          <li><a href="products.html?category=audio" class="category-nav-link">Audio & Speakers</a></li>
+          <li><a href="products.html?category=wearables" class="category-nav-link">Smartwatches</a></li>
+          <li><a href="products.html?category=accessories" class="category-nav-link">Phone Accessories</a></li>
+          <li><a href="products.html?category=power" class="category-nav-link">Power & Charging</a></li>
+          <li><a href="products.html?category=home" class="category-nav-link">Home Electronics</a></li>
         </ul>
       </div>
     </div>
@@ -203,30 +183,27 @@
     </div>
     <div class="mobile-drawer-content">
       <div class="mobile-nav-group">
-        <div class="mobile-nav-title">Store Navigation</div>
+        <div class="mobile-nav-title">Store Pages</div>
         <ul class="mobile-nav-list">
-          <li><a href="#hero" class="mobile-nav-link">Home</a></li>
-          <li><a href="#categories" class="mobile-nav-link">Shop by Category</a></li>
-          <li><a href="#deals" class="mobile-nav-link">Hot Deals</a></li>
-          <li><a href="#collection" class="mobile-nav-link">Full Catalogue</a></li>
-          <li><a href="#order-section" class="mobile-nav-link">Interactive Order Form</a></li>
-          <li><a href="#how-to-order" class="mobile-nav-link">How to Order</a></li>
-          <li><a href="#tech-corner" class="mobile-nav-link">Tech Guides</a></li>
-          <li><a href="#reviews-section" class="mobile-nav-link">Customer Reviews</a></li>
-          <li><a href="#faq" class="mobile-nav-link">Store FAQs</a></li>
-          <li><a href="#location" class="mobile-nav-link">Location & Directions</a></li>
+          <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+          <li><a href="products.html" class="mobile-nav-link">All Products Catalogue (26)</a></li>
+          <li><a href="order.html" class="mobile-nav-link">Interactive Order Form</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us & Store Story</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Tech Guides & Advice</a></li>
+          <li><a href="reviews.html" class="mobile-nav-link">Customer Reviews & Ratings</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact & Directions</a></li>
         </ul>
       </div>
 
       <div class="mobile-nav-group">
-        <div class="mobile-nav-title">Quick Department Filter</div>
+        <div class="mobile-nav-title">Browse by Department</div>
         <ul class="mobile-nav-list">
-          <li><a href="#collection" class="mobile-nav-link" onclick="filterByCategory('smartphones')">Smartphones</a></li>
-          <li><a href="#collection" class="mobile-nav-link" onclick="filterByCategory('laptops')">Laptops & Computers</a></li>
-          <li><a href="#collection" class="mobile-nav-link" onclick="filterByCategory('tvs')">TVs & Streaming</a></li>
-          <li><a href="#collection" class="mobile-nav-link" onclick="filterByCategory('audio')">Audio & Speakers</a></li>
-          <li><a href="#collection" class="mobile-nav-link" onclick="filterByCategory('power')">Power Banks & Chargers</a></li>
-          <li><a href="#collection" class="mobile-nav-link" onclick="filterByCategory('home')">Home Electronics</a></li>
+          <li><a href="products.html?category=smartphones" class="mobile-nav-link">Smartphones</a></li>
+          <li><a href="products.html?category=laptops" class="mobile-nav-link">Laptops & Computers</a></li>
+          <li><a href="products.html?category=tvs" class="mobile-nav-link">TVs & Streaming</a></li>
+          <li><a href="products.html?category=audio" class="mobile-nav-link">Audio & Speakers</a></li>
+          <li><a href="products.html?category=power" class="mobile-nav-link">Power Banks & Chargers</a></li>
+          <li><a href="products.html?category=home" class="mobile-nav-link">Home Electronics</a></li>
         </ul>
       </div>
     </div>
@@ -239,1039 +216,811 @@
 
   <!-- ROTATING PROMOTIONAL CAROUSEL (5 SLIDES, 2-SECOND INTERVAL) -->
   <section class="promo-carousel-wrapper" aria-label="Featured Promotions Carousel">
-    <div class="promo-carousel" id="promoCarousel">
-      <!-- Slide 1 -->
-      <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=1400&q=80');">
-        <div class="carousel-scrim"></div>
-        <div class="container" style="height: 100%; display: flex; align-items: center;">
-          <div class="carousel-content">
-            <span class="carousel-tag">Special Selection · Hot Deals</span>
-            <h2 class="carousel-title">Tech Deals Are Here</h2>
-            <p class="carousel-desc">Discover great deals on selected electronics, audio systems, and accessories at our Kapsabet store.</p>
-            <div class="carousel-actions">
-              <a href="#deals" class="btn btn-accent btn-lg">Shop Deals</a>
-              <a href="#order-section" class="btn btn-whatsapp btn-lg">Place Order</a>
+    <div class="carousel-container" id="promoCarousel">
+      <!-- Slide 1: Smartphones Special -->
+      <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02560?auto=format&fit=crop&w=1400&q=80');">
+        <div class="carousel-overlay">
+          <div class="container carousel-caption">
+            <span class="carousel-badge">Smartphones Festival</span>
+            <h2 class="carousel-title">Next-Gen 5G &amp; 4G Smartphones</h2>
+            <p class="carousel-desc">Samsung, Redmi, Infinix &amp; Tecno models tested at our Kapsabet counter with verified battery health.</p>
+            <div class="carousel-cta-group">
+              <a href="products.html?category=smartphones" class="btn btn-primary btn-sm">Shop Smartphones →</a>
+              <a href="order.html" class="btn btn-outline-light btn-sm">Quick Order Form</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 2 -->
-      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02560?auto=format&fit=crop&w=1400&q=80');">
-        <div class="carousel-scrim"></div>
-        <div class="container" style="height: 100%; display: flex; align-items: center;">
-          <div class="carousel-content">
-            <span class="carousel-tag">Smartphones & Mobile</span>
-            <h2 class="carousel-title">Upgrade Your Smartphone</h2>
-            <p class="carousel-desc">Explore reliable Samsung, Redmi, Infinix, and Tecno smartphones for business, family, and entertainment.</p>
-            <div class="carousel-actions">
-              <button type="button" class="btn btn-primary btn-lg" onclick="filterByCategory('smartphones')">Explore Phones</button>
-              <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20am%20looking%20to%20upgrade%20my%20smartphone." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">Ask Availability</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
+      <!-- Slide 2: Smart TVs & Audio -->
       <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=1400&q=80');">
-        <div class="carousel-scrim"></div>
-        <div class="container" style="height: 100%; display: flex; align-items: center;">
-          <div class="carousel-content">
-            <span class="carousel-tag">Home Entertainment</span>
-            <h2 class="carousel-title">Entertainment Starts Here</h2>
-            <p class="carousel-desc">Bring cinema-quality immersion into your living room with Smart 4K TVs, TV streaming boxes, and deep-bass sound systems.</p>
-            <div class="carousel-actions">
-              <button type="button" class="btn btn-accent btn-lg" onclick="filterByCategory('tvs')">Shop TVs</button>
-              <button type="button" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);" onclick="filterByCategory('audio')">View Speakers</button>
+        <div class="carousel-overlay">
+          <div class="container carousel-caption">
+            <span class="carousel-badge">Cinema at Home</span>
+            <h2 class="carousel-title">Crystal 4K Smart TVs &amp; Soundbars</h2>
+            <p class="carousel-desc">Crisp visuals from 32" to 65" with built-in YouTube, Netflix, digital tuner, and deep room-filling bass.</p>
+            <div class="carousel-cta-group">
+              <a href="products.html?category=tvs" class="btn btn-primary btn-sm">Explore TVs &amp; Audio →</a>
+              <a href="order.html" class="btn btn-outline-light btn-sm">Request Quote</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 4 -->
-      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1609592426861-12501a35773d?auto=format&fit=crop&w=1400&q=80');">
-        <div class="carousel-scrim"></div>
-        <div class="container" style="height: 100%; display: flex; align-items: center;">
-          <div class="carousel-content">
-            <span class="carousel-tag">Charging & Power Banks</span>
-            <h2 class="carousel-title">Power Your Everyday</h2>
-            <p class="carousel-desc">Stay powered through travel and work with heavy-duty 20,000mAh power banks, GaN fast chargers, and durable cables.</p>
-            <div class="carousel-actions">
-              <button type="button" class="btn btn-primary btn-lg" onclick="filterByCategory('power')">Shop Accessories</button>
-              <a href="#collection" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">Browse Store</a>
+      <!-- Slide 3: Laptops & Computing -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=80');">
+        <div class="carousel-overlay">
+          <div class="container carousel-caption">
+            <span class="carousel-badge">Work &amp; Study</span>
+            <h2 class="carousel-title">Reliable Laptops &amp; Computing Power</h2>
+            <p class="carousel-desc">High-speed Intel Core laptops, SSD storage upgrades, wireless mice, and durable accessories for office or college.</p>
+            <div class="carousel-cta-group">
+              <a href="products.html?category=laptops" class="btn btn-primary btn-sm">Browse Laptops →</a>
+              <a href="order.html" class="btn btn-outline-light btn-sm">Customize Order</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Slide 5 -->
-      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1400&q=80');">
-        <div class="carousel-scrim"></div>
-        <div class="container" style="height: 100%; display: flex; align-items: center;">
-          <div class="carousel-content">
-            <span class="carousel-tag">Computers & Laptops</span>
-            <h2 class="carousel-title">Your Next Tech Upgrade</h2>
-            <p class="carousel-desc">Find reliable HP, Lenovo, and Dell laptops alongside essential wireless accessories for work, school, and study.</p>
-            <div class="carousel-actions">
-              <button type="button" class="btn btn-accent btn-lg" onclick="filterByCategory('laptops')">Explore Laptops</button>
-              <a href="#location" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">Visit Shop in Kapsabet</a>
+      <!-- Slide 4: Power & Solar Systems -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1400&q=80');">
+        <div class="carousel-overlay">
+          <div class="container carousel-caption">
+            <span class="carousel-badge">Stay Powered 24/7</span>
+            <h2 class="carousel-title">High-Capacity Power Banks &amp; Solar</h2>
+            <p class="carousel-desc">Never get caught without battery. Fast-charging power banks, solar lights, and inverters for daily dependability.</p>
+            <div class="carousel-cta-group">
+              <a href="products.html?category=power" class="btn btn-primary btn-sm">View Power Solutions →</a>
+              <a href="products.html" class="btn btn-outline-light btn-sm">All Catalogue</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Audio & Accessories -->
+      <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1400&q=80');">
+        <div class="carousel-overlay">
+          <div class="container carousel-caption">
+            <span class="carousel-badge">Personal Tech</span>
+            <h2 class="carousel-title">Smartwatches, Earbuds &amp; Accessories</h2>
+            <p class="carousel-desc">Noise-canceling earphones, fitness smartwatches, tempered glass, fast type-C cables, and OTG adapters.</p>
+            <div class="carousel-cta-group">
+              <a href="products.html?category=accessories" class="btn btn-primary btn-sm">View Accessories →</a>
+              <a href="products.html" class="btn btn-outline-light btn-sm">Catalogue</a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Arrow Navigation -->
-    <button type="button" class="carousel-arrow carousel-arrow-prev" id="carouselPrevBtn" aria-label="Previous slide">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
-    <button type="button" class="carousel-arrow carousel-arrow-next" id="carouselNextBtn" aria-label="Next slide">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </button>
+    <!-- Controls -->
+    <button type="button" class="carousel-btn prev" id="carouselPrevBtn" aria-label="Previous slide">&#10094;</button>
+    <button type="button" class="carousel-btn next" id="carouselNextBtn" aria-label="Next slide">&#10095;</button>
 
-    <!-- 5 Clickable Pagination Dots -->
-    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel pagination">
-      <button type="button" class="carousel-dot active" aria-label="Slide 1"></button>
-      <button type="button" class="carousel-dot" aria-label="Slide 2"></button>
-      <button type="button" class="carousel-dot" aria-label="Slide 3"></button>
-      <button type="button" class="carousel-dot" aria-label="Slide 4"></button>
-      <button type="button" class="carousel-dot" aria-label="Slide 5"></button>
+    <!-- Indicators (5 Dots) -->
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Slide indicators">
+      <button type="button" class="carousel-dot active" role="tab" aria-label="Slide 1"></button>
+      <button type="button" class="carousel-dot" role="tab" aria-label="Slide 2"></button>
+      <button type="button" class="carousel-dot" role="tab" aria-label="Slide 3"></button>
+      <button type="button" class="carousel-dot" role="tab" aria-label="Slide 4"></button>
+      <button type="button" class="carousel-dot" role="tab" aria-label="Slide 5"></button>
     </div>
-
-    <div class="carousel-pause-notice">Auto-Rotation: 2s (Hover to pause)</div>
   </section>
 
-  <!-- SECTION A: HERO SHOPPING INTRODUCTION -->
+  <!-- HERO SECTION -->
   <section class="hero-section" id="hero">
     <div class="container hero-grid">
       <div class="hero-text-col">
-        <div class="hero-badge-pill">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          Electronics Retailer in Kapsabet, Nandi County
+        <div class="badge-pill">
+          <span class="badge-pill-dot"></span>
+          <span>Official Store in Kapsabet, Nandi County</span>
         </div>
-        <h1 class="hero-heading">Your World of Electronics, All in One Place.</h1>
-        <p class="hero-subtext">Discover smartphones, computers, entertainment systems, and everyday tech essentials at World Electronics Kapsabet.</p>
-        <div class="hero-buttons">
-          <a href="#collection" class="btn btn-navy btn-lg">Explore Products</a>
-          <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+        <h1 class="hero-heading">
+          Your World of Electronics, <span class="highlight">All in One Place</span>
+        </h1>
+        <p class="hero-lead">
+          From smartphones and university laptops to 4K Smart TVs and solar power solutions. Verified authentic quality, tested on our counter in Kapsabet, with fast local delivery across Nandi County and direct WhatsApp checkout.
+        </p>
+
+        <div class="hero-actions">
+          <a href="products.html" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            Explore All Products (26)
+          </a>
+          <a href="order.html" class="btn btn-outline btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            Interactive Order Form
+          </a>
+          <a 
+            href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20have%20an%20enquiry." 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn btn-whatsapp btn-lg"
+          >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
             </svg>
-            Order on WhatsApp
+            WhatsApp Us
           </a>
         </div>
-        <div class="hero-meta-row">
-          <div class="hero-meta-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <span>Open Daily 8:00 AM–8:00 PM</span>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="hero-stat-value">100%</span>
+            <span class="hero-stat-label">Tested &amp; Inspected</span>
           </div>
-          <div class="hero-meta-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span>Kapsabet Town Centre</span>
+          <div class="hero-stat-item">
+            <span class="hero-stat-value">8+</span>
+            <span class="hero-stat-label">Departments</span>
           </div>
-          <div class="hero-meta-item">
+          <div class="hero-stat-item">
+            <span class="hero-stat-value">Daily</span>
+            <span class="hero-stat-label">8 AM–8 PM Open</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-value">Same-Day</span>
+            <span class="hero-stat-label">Kapsabet Pickup</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-media-col">
+        <div class="hero-media-card">
+          <img 
+            src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=80" 
+            alt="World Electronics electronics counter showcase" 
+            class="hero-media-img"
+            onerror="handleImageError(this, 'Electronics Showcase')"
+          />
+          <div class="hero-media-float">
+            <div class="hero-media-float-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="hero-media-float-text">
+              <span class="float-title">Physical Shop Verification</span>
+              <span class="float-desc">Inspect devices before paying in Kapsabet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SHOP BY DEPARTMENT / CATEGORY GRID -->
+  <section class="section-padding" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Explore Categories</span>
+        <h2 class="section-title">Shop by Electronics Department</h2>
+        <p class="section-subtitle">Click any category to open our dedicated products catalogue filtered to that department.</p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- Category 1 -->
+        <a href="products.html?category=smartphones" class="category-card" title="Smartphones Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+              <line x1="12" y1="18" x2="12.01" y2="18"></line>
+            </svg>
+          </div>
+          <span class="category-card-title">Smartphones</span>
+          <span class="category-card-count">Samsung, Redmi, Infinix, Tecno</span>
+        </a>
+
+        <!-- Category 2 -->
+        <a href="products.html?category=laptops" class="category-card" title="Laptops Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="2" y1="20" x2="22" y2="20"></line>
+            </svg>
+          </div>
+          <span class="category-card-title">Laptops &amp; PCs</span>
+          <span class="category-card-count">HP, Lenovo, Dell, SSDs</span>
+        </a>
+
+        <!-- Category 3 -->
+        <a href="products.html?category=tvs" class="category-card" title="TVs Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
+            </svg>
+          </div>
+          <span class="category-card-title">TVs &amp; Streaming</span>
+          <span class="category-card-count">Smart 4K TVs, Android TV Boxes</span>
+        </a>
+
+        <!-- Category 4 -->
+        <a href="products.html?category=audio" class="category-card" title="Audio Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <span class="category-card-title">Audio &amp; Sound</span>
+          <span class="category-card-count">Soundbars, Bluetooth Speakers</span>
+        </a>
+
+        <!-- Category 5 -->
+        <a href="products.html?category=wearables" class="category-card" title="Smartwatches Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="7"></circle>
+              <polyline points="12 9 12 12 13.5 13.5"></polyline>
+              <path d="M16.51 17.35l-.35 3.83a2 2 0 0 1-2 1.82H9.83a2 2 0 0 1-2-1.82l-.35-3.83m.01-10.7l.35-3.83A2 2 0 0 1 9.83 1h4.35a2 2 0 0 1 2 1.82l.35 3.83"></path>
+            </svg>
+          </div>
+          <span class="category-card-title">Smartwatches</span>
+          <span class="category-card-count">Fitness trackers &amp; Calling watches</span>
+        </a>
+
+        <!-- Category 6 -->
+        <a href="products.html?category=accessories" class="category-card" title="Accessories Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+              <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <span class="category-card-title">Phone Accessories</span>
+          <span class="category-card-count">Cables, chargers, earphones</span>
+        </a>
+
+        <!-- Category 7 -->
+        <a href="products.html?category=power" class="category-card" title="Power Solutions Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <span class="category-card-title">Power &amp; Solar</span>
+          <span class="category-card-count">Power banks, solar lights, adapters</span>
+        </a>
+
+        <!-- Category 8 -->
+        <a href="products.html?category=home" class="category-card" title="Home Electronics Category">
+          <div class="category-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+          <span class="category-card-title">Home Electronics</span>
+          <span class="category-card-count">Kettles, blenders, extension reels</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FEATURED PROMOTIONAL ADS / ADVERTS -->
+  <section class="ads-section" id="ads">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Featured Store Ads</span>
+        <h2 class="section-title">Special Promotional Adverts &amp; Deals</h2>
+        <p class="section-subtitle">Exclusive limited-time store advertisements, bundle discounts, and seasonal offers in Kapsabet.</p>
+      </div>
+
+      <div class="ads-grid">
+        <!-- Ad 1: Smartphone Flash Deal Ad -->
+        <div class="ad-card" style="background-image: url('https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80');">
+          <div class="ad-card-overlay"></div>
+          <div class="ad-card-content">
+            <span class="ad-badge ad-badge-red">🔥 Flash Sale Advert</span>
+            <h3 class="ad-title">Redmi &amp; Samsung 5G Smartphone Bonanza</h3>
+            <p class="ad-desc">Includes free 67W fast turbo-charger, clear silicone case, and tempered glass applied in-store at our Kapsabet shop counter.</p>
+            <div class="ad-footer">
+              <span class="ad-price-tag">From KSh 19,500</span>
+              <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20want%20to%20claim%20the%20Smartphone%20Ad%20offer." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+                Claim on WhatsApp →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ad 2: Student & Office Laptop Ad -->
+        <div class="ad-card" style="background-image: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80');">
+          <div class="ad-card-overlay"></div>
+          <div class="ad-card-content">
+            <span class="ad-badge ad-badge-blue">💻 Sponsored Student Ad</span>
+            <h3 class="ad-title">HP &amp; Lenovo Core i5/i7 Workstation Bundle</h3>
+            <p class="ad-desc">Free wireless optical mouse, padded water-resistant backpack, and complete MS Office setup included for Baraton &amp; local students.</p>
+            <div class="ad-footer">
+              <span class="ad-price-tag">From KSh 28,000</span>
+              <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20want%20to%20claim%20the%20Laptop%20Bundle%20Ad%20offer." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+                Claim on WhatsApp →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ad 3: Solar & Power Saver Ad -->
+        <div class="ad-card" style="background-image: url('https://images.unsplash.com/photo-1609592426861-12501a35773d?auto=format&fit=crop&w=800&q=80');">
+          <div class="ad-card-overlay"></div>
+          <div class="ad-card-content">
+            <span class="ad-badge ad-badge-emerald">☀️ Power Saver Advert</span>
+            <h3 class="ad-title">20,000mAh Power Banks &amp; Solar Inverters</h3>
+            <p class="ad-desc">Never run out of power during blackout periods in Nandi County. High-speed multi-device charging and backup bulbs guaranteed.</p>
+            <div class="ad-footer">
+              <span class="ad-price-tag">From KSh 1,800</span>
+              <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20want%20to%20order%20from%20the%20Power%20Ad%20special." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+                Claim on WhatsApp →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FEATURED HOT DEALS -->
+  <section class="section-padding deals-section" id="deals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Limited Time</span>
+        <h2 class="section-title">Special Hot Deals in Kapsabet</h2>
+        <p class="section-subtitle">Verified discounts on select popular electronics. Click Quick View to inspect specs or Add to Cart.</p>
+      </div>
+
+      <div class="products-grid" id="hotDealsContainer">
+        <!-- Rendered via script.js populateHotDeals() -->
+      </div>
+
+      <!-- Banner Leading to Products Page -->
+      <div style="margin-top: 3rem; background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; box-shadow: var(--shadow-sm);">
+        <div>
+          <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.25rem;">Want to see every device in stock?</h3>
+          <p style="color: #64748b; font-size: 0.9375rem;">Browse all 26+ products with live search, price sorting, and department filters.</p>
+        </div>
+        <a href="products.html" class="btn btn-navy btn-lg">
+          View All Products Catalogue (26) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: LATEST ARRIVALS -->
+  <section class="section-padding" style="background-color: var(--color-bg-alt);" id="arrivals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Fresh Stock</span>
+        <h2 class="section-title">Latest Gadgets &amp; New Arrivals</h2>
+        <p class="section-subtitle">Recently unboxed products now available at our shop in Kapsabet town.</p>
+      </div>
+
+      <div class="products-grid" id="latestArrivalsContainer">
+        <!-- Rendered via script.js populateLatestArrivals() -->
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="products.html?sort=newest" class="btn btn-outline btn-lg">
+          Explore All New Arrivals in Catalogue →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: CUSTOMER FAVOURITES -->
+  <section class="section-padding" id="favourites">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Top Sellers</span>
+        <h2 class="section-title">Customer Favourites in Kapsabet</h2>
+        <p class="section-subtitle">High-demand phones, laptops, and power accessories trusted by local shoppers.</p>
+      </div>
+
+      <div class="products-grid" id="customerFavouritesContainer">
+        <!-- Rendered via script.js populateCustomerFavourites() -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: WHY CHOOSE US -->
+  <section class="section-padding" style="background-color: var(--color-bg-alt);" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Trust &amp; Quality</span>
+        <h2 class="section-title">Why Shop at World Electronics Kapsabet?</h2>
+        <p class="section-subtitle">We remove the uncertainty of buying technology with honest local service.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-card-title">100% Genuine Brands</h3>
+          <p class="feature-card-desc">Direct partnerships with authorized distributors. We guarantee authentic products from Samsung, HP, Lenovo, Hisense, and Oraimo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+          <h3 class="feature-card-title">Test Before You Pay</h3>
+          <p class="feature-card-desc">Visit our counter in Kapsabet to inspect screen clarity, test audio, and check battery health before completing payment.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="1" y="3" width="15" height="13"></rect>
               <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
               <circle cx="5.5" cy="18.5" r="2.5"></circle>
               <circle cx="18.5" cy="18.5" r="2.5"></circle>
             </svg>
-            <span>Fast Local Dispatch & In-Store Pickup</span>
           </div>
-        </div>
-      </div>
-      <div class="hero-media-col">
-        <div class="hero-media-card">
-          <img 
-            src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=900&q=80" 
-            alt="World Electronics Kapsabet Showcase" 
-            loading="eager"
-            onerror="handleImageError(this, 'World Electronics')"
-          />
-          <div class="hero-media-float">
-            <div class="hero-media-float-text">
-              <span style="font-size: 0.875rem; font-weight: 700; color: #101828;">Direct WhatsApp Ordering</span>
-              <span style="font-size: 0.75rem; color: #64748b;">Fast stock availability confirmation</span>
-            </div>
-            <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20enquire%20about%20electronics%20in%20stock." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp">
-              Chat Now
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION B: SHOP BY CATEGORY (8 CATEGORIES) -->
-  <section class="section-padding" id="categories">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Browse Departments</span>
-        <h2 class="section-title">Shop by Category</h2>
-        <p class="section-subtitle">Select a product department to filter our live catalogue and find what you need.</p>
-      </div>
-
-      <div class="categories-grid">
-        <div class="category-card" onclick="filterByCategory('smartphones')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-              <line x1="12" y1="18" x2="12.01" y2="18"></line>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Smartphones</h3>
-          <span class="category-card-count">Samsung, Redmi, Infinix, Tecno</span>
+          <h3 class="feature-card-title">Pickup or Local Rider Delivery</h3>
+          <p class="feature-card-desc">Pick up your order in-store for free, or request same-day boda/courier delivery to your doorstep in Kapsabet, Baraton, or Nandi Hills.</p>
         </div>
 
-        <div class="category-card" onclick="filterByCategory('laptops')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-              <line x1="2" y1="20" x2="22" y2="20"></line>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Laptops & Computers</h3>
-          <span class="category-card-count">HP, Lenovo, Dell for Study & Work</span>
-        </div>
-
-        <div class="category-card" onclick="filterByCategory('tvs')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-              <polyline points="17 2 12 7 7 2"></polyline>
-            </svg>
-          </div>
-          <h3 class="category-card-name">TVs & Entertainment</h3>
-          <span class="category-card-count">Smart 4K TVs, TV Boxes & Decoders</span>
-        </div>
-
-        <div class="category-card" onclick="filterByCategory('audio')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
-              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Audio & Speakers</h3>
-          <span class="category-card-count">Bluetooth Earbuds, Home Theatres</span>
-        </div>
-
-        <div class="category-card" onclick="filterByCategory('wearables')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="12 6 12 12 16 14"></polyline>
-              <circle cx="12" cy="12" r="7"></circle>
-              <polyline points="12 5 12 2"></polyline>
-              <polyline points="12 19 12 22"></polyline>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Smartwatches & Wearables</h3>
-          <span class="category-card-count">Calling Watches, Fitness Trackers</span>
-        </div>
-
-        <div class="category-card" onclick="filterByCategory('accessories')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Phone Accessories</h3>
-          <span class="category-card-count">Fast Cables, Cases, Screen Protectors</span>
-        </div>
-
-        <div class="category-card" onclick="filterByCategory('power')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Power Banks & Chargers</h3>
-          <span class="category-card-count">20,000mAh Banks, GaN Fast Plugs</span>
-        </div>
-
-        <div class="category-card" onclick="filterByCategory('home')">
-          <div class="category-icon-wrapper">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-              <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-          </div>
-          <h3 class="category-card-name">Home Electronics</h3>
-          <span class="category-card-count">Wi-Fi Routers, Keyboards, Solar Lights</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION C: FEATURED DEALS ("HOT DEALS") -->
-  <section class="section-padding deals-section" id="deals">
-    <div class="container">
-      <div class="deals-header-bar">
-        <div class="deals-title-wrap">
-          <svg class="deals-fire-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.5 12.5C17.5 15.54 15.04 18 12 18C8.96 18 6.5 15.54 6.5 12.5C6.5 9.46 9.5 5 12 2C14.5 5 17.5 9.46 17.5 12.5Z"></path>
-          </svg>
-          <div>
-            <h2 class="section-title" style="margin-bottom: 0.25rem;">Hot Deals in Kapsabet</h2>
-            <p style="font-size: 0.875rem; color: #64748b;">Selected electronics at special promotional prices for direct WhatsApp ordering.</p>
-          </div>
-        </div>
-        <button type="button" class="btn btn-outline" onclick="filterByCategory('all')">View All Items</button>
-      </div>
-
-      <div class="products-grid" id="hotDealsContainer">
-        <!-- Rendered via script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION D: OUR COLLECTION (MASTER LIVE SEARCH, FILTER & SORT) -->
-  <section class="section-padding" id="collection">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Live Catalogue</span>
-        <h2 class="section-title">Explore Our Full Collection</h2>
-        <p class="section-subtitle">Filter by category, search by product name, sort prices, and order items through WhatsApp.</p>
-      </div>
-
-      <!-- Controls Card -->
-      <div class="collection-controls">
-        <div class="collection-top-row">
-          <div class="collection-search-wrap">
+        <div class="feature-card">
+          <div class="feature-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <input 
-              type="text" 
-              id="collectionSearchInput" 
-              class="collection-search-input" 
-              placeholder="Search by product name, brand, or spec..." 
-              aria-label="Search collection"
-            />
-          </div>
-
-          <div class="collection-sort-wrap">
-            <span class="collection-sort-label">Sort by:</span>
-            <select id="collectionSortSelect" class="collection-sort-select" aria-label="Sort products">
-              <option value="featured">Featured First</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="name-asc">Alphabetical (A-Z)</option>
-              <option value="newest">Latest Arrivals</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Filter Buttons Bar -->
-        <div class="filter-tabs">
-          <button type="button" class="filter-btn active" data-category="all">All Products (26)</button>
-          <button type="button" class="filter-btn" data-category="smartphones">Smartphones</button>
-          <button type="button" class="filter-btn" data-category="laptops">Laptops & Computers</button>
-          <button type="button" class="filter-btn" data-category="tvs">TVs & Entertainment</button>
-          <button type="button" class="filter-btn" data-category="audio">Audio & Speakers</button>
-          <button type="button" class="filter-btn" data-category="wearables">Smartwatches</button>
-          <button type="button" class="filter-btn" data-category="accessories">Accessories</button>
-          <button type="button" class="filter-btn" data-category="power">Power & Charging</button>
-          <button type="button" class="filter-btn" data-category="home">Home Electronics</button>
-        </div>
-      </div>
-
-      <!-- Meta Bar -->
-      <div class="collection-meta-bar">
-        <span id="collectionProductCount">Loading products...</span>
-        <button type="button" class="btn-reset-filters" onclick="resetAllFilters()">Reset All Filters</button>
-      </div>
-
-      <!-- Main Collection Grid -->
-      <div class="products-grid" id="masterCollectionGrid">
-        <!-- Rendered via script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION E: LATEST PRODUCTS -->
-  <section class="section-padding" style="background-color: var(--color-bg-alt);" id="arrivals">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Just Landed</span>
-        <h2 class="section-title">Latest Tech Arrivals</h2>
-        <p class="section-subtitle">Newly arrived gadgets, phones, and accessories freshly stocked at World Electronics Kapsabet.</p>
-      </div>
-
-      <div class="products-grid" id="latestArrivalsContainer">
-        <!-- Rendered via script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION F: BEST SELLERS -->
-  <section class="section-padding" id="favourites">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Popular Choices</span>
-        <h2 class="section-title">Customer Favourites</h2>
-        <p class="section-subtitle">Frequently requested electronics by customers across Kapsabet and Nandi County.</p>
-      </div>
-
-      <div class="products-grid" id="customerFavouritesContainer">
-        <!-- Rendered via script.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION G: WHY SHOP WITH WORLD ELECTRONICS? -->
-  <section class="section-padding" style="background-color: var(--color-bg-alt);" id="why-us">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Local Service</span>
-        <h2 class="section-title">Why Shop With World Electronics?</h2>
-        <p class="section-subtitle">We aim to make purchasing reliable electronics in Kapsabet easy, fast, and transparent.</p>
-      </div>
-
-      <div class="trust-grid">
-        <div class="trust-card">
-          <div class="trust-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
           </div>
-          <h3 class="trust-card-title">Convenient WhatsApp Ordering</h3>
-          <p class="trust-card-desc">No complicated checkouts. Send your order or enquiry straight to our WhatsApp for quick responses.</p>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-          </div>
-          <h3 class="trust-card-title">Open Daily in Kapsabet</h3>
-          <p class="trust-card-desc">We are open every day from 8:00 AM to 8:00 PM for convenient shopping, product testing, and collections.</p>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-          </div>
-          <h3 class="trust-card-title">Central Town Location</h3>
-          <p class="trust-card-desc">Conveniently located in Kapsabet, Nandi County, making physical visits and quick pick-ups easy.</p>
-        </div>
-
-        <div class="trust-card">
-          <div class="trust-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-              <polyline points="22 4 12 14.01 9 11.01"></polyline>
-            </svg>
-          </div>
-          <h3 class="trust-card-title">Clear Product Enquiries</h3>
-          <p class="trust-card-desc">Speak directly with us about specific phone models, accessories, power specifications, and compatibility.</p>
+          <h3 class="feature-card-title">Instant WhatsApp Help</h3>
+          <p class="feature-card-desc">Get prompt replies from our team (+254 715 071 820) with live photos of products in stock and clear warranty terms.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION H: HOW TO ORDER -->
+  <!-- SECTION: HOW TO ORDER -->
   <section class="section-padding" id="how-to-order">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Simple 4-Step Process</span>
-        <h2 class="section-title">How to Place an Order</h2>
-        <p class="section-subtitle">Experience smooth shopping with instant handoff to our WhatsApp customer desk.</p>
+        <span class="section-kicker">Simple Process</span>
+        <h2 class="section-title">How Ordering Works at World Electronics</h2>
+        <p class="section-subtitle">Order quickly online or through WhatsApp in 3 simple steps.</p>
       </div>
 
-      <div class="order-steps-grid">
+      <div class="steps-grid">
         <div class="step-card">
           <div class="step-number">1</div>
-          <h3 class="step-title">Browse Catalogue</h3>
-          <p class="step-desc">Explore our selection of smartphones, computers, TVs, audio gear, and power accessories.</p>
+          <h3 class="step-card-title">Select Your Products</h3>
+          <p class="step-card-desc">Browse our online catalogue or use our interactive Order Form to add multiple items, review prices, and configure quantities.</p>
         </div>
 
         <div class="step-card">
           <div class="step-number">2</div>
-          <h3 class="step-title">Select Your Product</h3>
-          <p class="step-desc">Click "Quick View" to review specifications, or click "Add to Cart" to build an order.</p>
+          <h3 class="step-card-title">Confirm Delivery &amp; Pickup</h3>
+          <p class="step-card-desc">Choose in-store pickup at our Kapsabet shop or local dispatch to your location, and specify your preferred payment method.</p>
         </div>
 
         <div class="step-card">
           <div class="step-number">3</div>
-          <h3 class="step-title">Choose Order Method</h3>
-          <p class="step-desc">Click "Order on WhatsApp" on any card, or use our interactive order form right below.</p>
-        </div>
-
-        <div class="step-card">
-          <div class="step-number">4</div>
-          <h3 class="step-title">Confirm & Arrange</h3>
-          <p class="step-desc">Send the prefilled message to confirm stock availability, final price, and shop pickup or delivery.</p>
+          <h3 class="step-card-title">WhatsApp Confirmation</h3>
+          <p class="step-card-desc">Your order is formatted into an instant WhatsApp summary sent directly to our shop staff for instant confirmation and dispatch.</p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- INTERACTIVE ORDER SECTION (COMPLETE FORM RIGHT ON HOMEPAGE) -->
-  <section class="section-padding" style="background-color: var(--color-bg-alt);" id="order-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Interactive Order Form</span>
-        <h2 class="section-title">Place Your Order Online</h2>
-        <p class="section-subtitle">Select items, specify your delivery area in Kapsabet or Nandi County, and send your order straight to our WhatsApp desk.</p>
-      </div>
-
-      <div class="order-layout-grid" id="interactiveOrderForm">
-        <div>
-          <!-- Step 1: Items Table -->
-          <div class="order-form-card">
-            <h3 class="order-card-title">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="9" cy="21" r="1"></circle>
-                <circle cx="20" cy="21" r="1"></circle>
-                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-              </svg>
-              1. Selected Products
-            </h3>
-
-            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
-              <select id="orderProductSelect" class="form-select" style="flex: 1;" aria-label="Add item to order">
-                <!-- Populated dynamically via script.js -->
-              </select>
-              <button type="button" class="btn btn-navy" id="orderAddItemBtn">
-                + Add Item
-              </button>
-            </div>
-
-            <div class="order-table-responsive">
-              <table class="order-items-table">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Qty</th>
-                    <th style="text-align: right;">Total</th>
-                  </tr>
-                </thead>
-                <tbody id="orderItemsTableBody">
-                  <!-- Populated via script.js -->
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- Step 2: Contact Info -->
-          <div class="order-form-card">
-            <h3 class="order-card-title">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              2. Your Contact Details
-            </h3>
-
-            <div class="form-group">
-              <label for="orderCustomerName" class="form-label">Full Name *</label>
-              <input type="text" id="orderCustomerName" class="form-input" placeholder="e.g. Kiprono Koech" />
-            </div>
-
-            <div class="form-group">
-              <label for="orderCustomerPhone" class="form-label">WhatsApp / Phone Number *</label>
-              <input type="tel" id="orderCustomerPhone" class="form-input" placeholder="e.g. 0712 345 678" />
-            </div>
-
-            <div class="form-group">
-              <label for="orderCustomerLocation" class="form-label">Delivery Location / Town Area</label>
-              <input type="text" id="orderCustomerLocation" class="form-input" placeholder="e.g. Kapsabet CBD, Baraton, Chepterit, Nandi Hills" />
-            </div>
-          </div>
-
-          <!-- Step 3: Fulfillment & Payment -->
-          <div class="order-form-card">
-            <h3 class="order-card-title">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="1" y="3" width="15" height="13"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
-              3. Delivery & Payment Preferences
-            </h3>
-
-            <div class="form-group">
-              <label class="form-label">Collection or Dispatch Method</label>
-              <div class="radio-card-grid">
-                <label class="radio-card active">
-                  <input type="radio" name="deliveryMethod" value="In-Store Pickup" checked />
-                  <div class="radio-card-content">
-                    <span class="radio-card-title">In-Store Pickup (Free)</span>
-                    <span class="radio-card-desc">Collect at World Electronics shop in Kapsabet (Daily 8 AM–8 PM)</span>
-                  </div>
-                </label>
-
-                <label class="radio-card">
-                  <input type="radio" name="deliveryMethod" value="Local Rider Delivery" />
-                  <div class="radio-card-content">
-                    <span class="radio-card-title">Local Delivery</span>
-                    <span class="radio-card-desc">Boda / Courier dispatch to your location in Kapsabet area</span>
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="orderPaymentPreference" class="form-label">Preferred Payment Method</label>
-              <select id="orderPaymentPreference" class="form-select">
-                <option value="M-Pesa on Collection / Delivery">M-Pesa (Till / Paybill on Collection or Delivery)</option>
-                <option value="Cash on Pickup">Cash at the Shop</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="orderCustomerNotes" class="form-label">Special Notes / Questions (Optional)</label>
-              <textarea id="orderCustomerNotes" class="form-textarea" rows="2" placeholder="e.g. Preferred color variant, phone case brand, or collection time"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sticky Sidebar Summary -->
-        <div>
-          <div class="order-summary-sidebar">
-            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary); margin-bottom: 1.25rem;">Order Summary</h3>
-            
-            <div class="order-summary-row">
-              <span style="color: #64748b;">Selected Items:</span>
-              <span id="orderSummaryCount" style="font-weight: 600;">0 items</span>
-            </div>
-
-            <div class="order-summary-row">
-              <span style="color: #64748b;">Estimated Subtotal:</span>
-              <span id="orderSummarySubtotal" class="tabular-nums" style="font-weight: 700;">KSh 0</span>
-            </div>
-
-            <div class="order-summary-row total">
-              <span>Estimated Total:</span>
-              <span id="orderSummaryTotal" class="tabular-nums" style="color: var(--color-secondary);">KSh 0</span>
-            </div>
-
-            <div style="background-color: var(--color-bg-alt); padding: 0.875rem; border-radius: 8px; font-size: 0.75rem; color: #64748b; line-height: 1.5; margin: 1.25rem 0;">
-              ℹ️ <strong>Shop Verification:</strong> All orders are confirmed directly with our shop team on WhatsApp to verify current in-stock availability before you pay.
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-              <button type="button" class="btn btn-whatsapp btn-lg" id="submitOrderViaWhatsAppBtn" style="width: 100%;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
-                </svg>
-                Send Order to WhatsApp
-              </button>
-
-              <button type="button" class="btn btn-navy" id="generateReceiptBtn" style="width: 100%;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                  <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                  <rect x="6" y="14" width="12" height="8"></rect>
-                </svg>
-                Generate Printable Order Slip
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION I: PROMOTIONAL CALL-TO-ACTION -->
-  <section class="container" style="margin-top: 2rem; margin-bottom: 4rem;">
-    <div class="cta-banner-wrapper">
-      <div class="cta-banner-content">
-        <h2 class="cta-banner-title">Found Something You Love?</h2>
-        <p class="cta-banner-desc">Contact World Electronics and let us help you find the right tech for your needs in Kapsabet.</p>
-        <div class="cta-banner-actions">
-          <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20assistance%20finding%20the%20right%20tech%20product." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
-            </svg>
-            Chat on WhatsApp
+      <!-- Action Card Linking to Order Form -->
+      <div style="margin-top: 3rem; background: linear-gradient(135deg, #0b1329 0%, #1e293b 100%); color: #ffffff; border-radius: var(--radius-xl); padding: 2.5rem; text-align: center; box-shadow: var(--shadow-md);">
+        <h3 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem;">Ready to place an order?</h3>
+        <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 1.5rem; font-size: 1rem;">Use our dedicated Interactive Order Form to select multiple items, view live subtotals, and generate a printable order slip or WhatsApp message.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="order.html" class="btn btn-secondary btn-lg">
+            Open Interactive Order Form →
           </a>
-          <a href="#collection" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.4);">
-            Browse Products
+          <a href="products.html" class="btn btn-outline-light btn-lg">
+            Browse All Products
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION J: BLOG AND TECH GUIDES ("TECH CORNER") -->
+  <!-- SECTION: TECH GUIDES PREVIEW -->
   <section class="section-padding" style="background-color: var(--color-bg-alt);" id="tech-corner">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Tech Corner</span>
-        <h2 class="section-title">Guides & Tech Insights</h2>
-        <p class="section-subtitle">Practical advice to help you choose the right smartphone, laptop, power bank, and audio setup.</p>
+        <span class="section-kicker">Knowledge Base</span>
+        <h2 class="section-title">Tech Guides &amp; Buying Advice</h2>
+        <p class="section-subtitle">Helpful advice written by our staff to help you make informed tech purchases in Kenya.</p>
       </div>
 
-      <div class="blog-grid">
+      <div class="blog-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
         <!-- Article 1 -->
         <article class="blog-card">
-          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02560?auto=format&fit=crop&w=700&q=80" alt="Smartphone buying guide" class="blog-image" onerror="handleImageError(this, 'Smartphones')" />
+          <img 
+            src="https://images.unsplash.com/photo-1511707171634-5f897ff02560?auto=format&fit=crop&w=700&q=80" 
+            alt="Smartphone buying guide" 
+            class="blog-image" 
+            loading="lazy"
+            onerror="handleImageError(this, 'Smartphones')" 
+          />
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-category-tag">Smartphones</span>
               <span>·</span>
-              <span>Tech Guide</span>
+              <span>Buying Guide</span>
             </div>
-            <h3 class="blog-title">How to Choose the Right Smartphone for Your Budget</h3>
-            <p class="blog-excerpt">With so many options on the market, finding the right balance between RAM, storage, camera quality, and battery life is key.</p>
-            <button type="button" class="blog-read-more" onclick="openBlogArticleModal('blog-01')">Read Article →</button>
+            <h3 class="blog-title">How to Choose the Right Smartphone for Your Budget in Kapsabet</h3>
+            <p class="blog-excerpt">Key advice on picking the optimal RAM, storage, camera quality, and battery life without overspending.</p>
+            <a href="blog-single.html?id=blog-01" class="btn btn-outline btn-sm" style="margin-top: auto;">Read Full Guide →</a>
           </div>
         </article>
 
         <!-- Article 2 -->
         <article class="blog-card">
-          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=700&q=80" alt="Laptop guide" class="blog-image" onerror="handleImageError(this, 'Laptops')" />
+          <img 
+            src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=700&q=80" 
+            alt="Laptop guide" 
+            class="blog-image" 
+            loading="lazy"
+            onerror="handleImageError(this, 'Laptops')" 
+          />
           <div class="blog-body">
             <div class="blog-meta">
-              <span class="blog-category-tag">Computers</span>
+              <span class="blog-category-tag">Laptops</span>
               <span>·</span>
-              <span>Buying Advice</span>
+              <span>Student &amp; Office</span>
             </div>
-            <h3 class="blog-title">Five Things to Check Before Buying a Laptop</h3>
-            <p class="blog-excerpt">Whether for college classes, office paperwork, or freelancing, check these five core essentials before purchasing a machine.</p>
-            <button type="button" class="blog-read-more" onclick="openBlogArticleModal('blog-02')">Read Article →</button>
+            <h3 class="blog-title">Laptops for University &amp; Business: SSD vs HDD and RAM Essentials</h3>
+            <p class="blog-excerpt">Why SSD drives are essential for speed and durability, and which processors handle multi-tab research best.</p>
+            <a href="blog-single.html?id=blog-02" class="btn btn-outline btn-sm" style="margin-top: auto;">Read Full Guide →</a>
           </div>
         </article>
 
         <!-- Article 3 -->
         <article class="blog-card">
-          <img src="https://images.unsplash.com/photo-1609592426861-12501a35773d?auto=format&fit=crop&w=700&q=80" alt="Power bank guide" class="blog-image" onerror="handleImageError(this, 'Power')" />
+          <img 
+            src="https://images.unsplash.com/photo-1609081219090-a6d8173087ec?auto=format&fit=crop&w=700&q=80" 
+            alt="Power bank guide" 
+            class="blog-image" 
+            loading="lazy"
+            onerror="handleImageError(this, 'Power')" 
+          />
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-category-tag">Power</span>
               <span>·</span>
-              <span>Everyday Tech</span>
+              <span>Battery Care</span>
             </div>
-            <h3 class="blog-title">Power Banks Explained: Capacity, Charging, and Care</h3>
-            <p class="blog-excerpt">Understand what 10,000mAh vs 20,000mAh means, how fast charging works, and how to maintain battery lifespan.</p>
-            <button type="button" class="blog-read-more" onclick="openBlogArticleModal('blog-03')">Read Article →</button>
+            <h3 class="blog-title">Power Bank Buying Guide: How Many mAh Do You Actually Need?</h3>
+            <p class="blog-excerpt">Real capacity calculations, fast-charging protocols (PD/QC), and safety tips to extend the life of your battery pack.</p>
+            <a href="blog-single.html?id=blog-03" class="btn btn-outline btn-sm" style="margin-top: auto;">Read Full Guide →</a>
           </div>
         </article>
+      </div>
 
-        <!-- Article 4 -->
-        <article class="blog-card">
-          <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=700&q=80" alt="Audio guide" class="blog-image" onerror="handleImageError(this, 'Audio')" />
-          <div class="blog-body">
-            <div class="blog-meta">
-              <span class="blog-category-tag">Audio</span>
-              <span>·</span>
-              <span>Audio Guide</span>
-            </div>
-            <h3 class="blog-title">How to Choose Speakers and Sound Systems for Home</h3>
-            <p class="blog-excerpt">Compare portable Bluetooth speakers and 3.1 home theatre setups to find the right audio profile for music and movies.</p>
-            <button type="button" class="blog-read-more" onclick="openBlogArticleModal('blog-04')">Read Article →</button>
-          </div>
-        </article>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="blog.html" class="btn btn-navy btn-lg">
+          View All Tech Guides &amp; Articles →
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CUSTOMER REVIEWS & FEEDBACK SECTION -->
+  <!-- SECTION: REVIEWS PREVIEW -->
   <section class="section-padding" id="reviews-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-kicker">Feedback</span>
-        <h2 class="section-title">What Customers in Kapsabet Say</h2>
-        <p class="section-subtitle">Real experiences from customers across Kapsabet, Baraton, Chepterit, and Nandi County.</p>
+        <span class="section-kicker">Verified Feedback</span>
+        <h2 class="section-title">What Our Customers in Kapsabet Say</h2>
+        <p class="section-subtitle">Real experiences from students, teachers, business owners, and residents across Nandi County.</p>
       </div>
 
-      <div class="reviews-summary-grid">
-        <div class="reviews-score-card">
-          <div class="reviews-big-score">5.0</div>
-          <div class="stars-display">★★★★★</div>
-          <p style="font-size: 0.875rem; color: #cbd5e1; margin-bottom: 1.25rem;">Rated highly for genuine products & responsive WhatsApp service</p>
-          <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20share%20my%20feedback." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
-            Send Feedback on WhatsApp
-          </a>
+      <!-- Testimonial Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem; box-shadow: var(--shadow-sm);">
+          <div class="stars-display" style="font-size: 1.25rem; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="color: #334155; font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            "Bought a Samsung phone and tested it right at the shop. The owner explained all features and even applied the screen protector perfectly. Best electronics shop in Kapsabet!"
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 700; color: #101828; font-size: 0.9375rem;">Emmanuel K.</div>
+              <div style="font-size: 0.75rem; color: #64748b;">Kapsabet Town</div>
+            </div>
+            <span style="font-size: 0.75rem; background: #ecfdf5; color: #059669; font-weight: 600; padding: 0.25rem 0.5rem; border-radius: 9999px;">Verified Buyer</span>
+          </div>
         </div>
 
-        <div class="order-form-card" style="margin-bottom: 0;">
-          <h3 class="order-card-title">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-            </svg>
-            Leave Your Review
-          </h3>
-          <form id="customerReviewForm">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-              <div class="form-group">
-                <label for="reviewAuthorName" class="form-label">Your Name *</label>
-                <input type="text" id="reviewAuthorName" class="form-input" placeholder="e.g. Victor Kosgei" required />
-              </div>
-              <div class="form-group">
-                <label for="reviewAuthorLocation" class="form-label">Your Area in Kapsabet</label>
-                <input type="text" id="reviewAuthorLocation" class="form-input" placeholder="e.g. Kapsabet Town" />
-              </div>
+        <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem; box-shadow: var(--shadow-sm);">
+          <div class="stars-display" style="font-size: 1.25rem; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="color: #334155; font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            "Ordered a laptop for university coursework through WhatsApp. They delivered it promptly to Baraton and allowed me to verify all specifications. Highly recommended!"
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 700; color: #101828; font-size: 0.9375rem;">Mercy Chebet</div>
+              <div style="font-size: 0.75rem; color: #64748b;">Baraton, Nandi</div>
             </div>
+            <span style="font-size: 0.75rem; background: #ecfdf5; color: #059669; font-weight: 600; padding: 0.25rem 0.5rem; border-radius: 9999px;">Verified Buyer</span>
+          </div>
+        </div>
 
-            <div class="form-group">
-              <label for="reviewProductName" class="form-label">Product Purchased</label>
-              <input type="text" id="reviewProductName" class="form-input" placeholder="e.g. Samsung Phone, Power Bank, Laptop, Earbuds" />
+        <div style="background: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem; box-shadow: var(--shadow-sm);">
+          <div class="stars-display" style="font-size: 1.25rem; margin-bottom: 0.75rem;">★★★★★</div>
+          <p style="color: #334155; font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1.25rem;">
+            "Got a 43-inch smart TV and soundbar. The setup assistance was great and price was better than traveling to Eldoret. Customer service is top tier."
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+              <div style="font-weight: 700; color: #101828; font-size: 0.9375rem;">Dennis Rotich</div>
+              <div style="font-size: 0.75rem; color: #64748b;">Nandi Hills</div>
             </div>
-
-            <div class="form-group">
-              <label class="form-label">Your Rating</label>
-              <div class="star-rating-selector" aria-label="Select star rating">
-                <span class="star active" data-value="1">★</span>
-                <span class="star active" data-value="2">★</span>
-                <span class="star active" data-value="3">★</span>
-                <span class="star active" data-value="4">★</span>
-                <span class="star active" data-value="5">★</span>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="reviewCommentText" class="form-label">Your Review & Comments *</label>
-              <textarea id="reviewCommentText" class="form-textarea" rows="2" placeholder="Tell us about the product and store service..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-navy">
-              Post Review
-            </button>
-          </form>
+            <span style="font-size: 0.75rem; background: #ecfdf5; color: #059669; font-weight: 600; padding: 0.25rem 0.5rem; border-radius: 9999px;">Verified Buyer</span>
+          </div>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;" id="reviewsListContainer">
-        <!-- Rendered via script.js -->
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="reviews.html" class="btn btn-outline btn-lg">
+          View All Reviews &amp; Submit Your Feedback →
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- SECTION K: FREQUENTLY ASKED QUESTIONS (ACCORDION) -->
+  <!-- SECTION: FAQ ACCORDION -->
   <section class="section-padding" style="background-color: var(--color-bg-alt);" id="faq">
     <div class="container">
       <div class="section-header">
         <span class="section-kicker">Got Questions?</span>
         <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Common questions about ordering, stock availability, pricing, and visiting our shop in Kapsabet.</p>
+        <p class="section-subtitle">Helpful answers about our location, products, warranty, and delivery.</p>
       </div>
 
       <div class="faq-container">
+        <!-- FAQ 1 -->
         <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>How do I place an order?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>Where is your shop physically located in Kapsabet?</span>
+            <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Browse our online catalogue, select the products you want, and click "Order on WhatsApp" (or add them to your cart and click "Checkout via WhatsApp"). This opens a prefilled message directly to our official WhatsApp (+254 715 071 820) so we can confirm current stock and finalise your order.
-            </div>
+            <p>Our physical store is centrally located in Kapsabet town, Nandi County, Kenya. We welcome walk-in customers daily between 8:00 AM and 8:00 PM for hands-on device testing, counter inspections, and direct purchases.</p>
           </div>
         </div>
 
+        <!-- FAQ 2 -->
         <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>How can I check product availability?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>How do I place an order online or via WhatsApp?</span>
+            <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Since electronics inventory turns over quickly, the fastest way to confirm availability is to tap the WhatsApp button on any item. We will check our shop shelves in Kapsabet immediately and let you know if the item is ready for collection or dispatch.
-            </div>
+            <p>You can either use our dedicated <a href="order.html" style="color: var(--color-primary); font-weight: 600; text-decoration: underline;">Interactive Order Form</a> to select multiple items and generate an instant WhatsApp order, or click the "WhatsApp" button on any product card in our <a href="products.html" style="color: var(--color-primary); font-weight: 600; text-decoration: underline;">Catalogue</a>. Our WhatsApp desk (+254 715 071 820) responds promptly to confirm in-stock status and delivery details.</p>
           </div>
         </div>
 
+        <!-- FAQ 3 -->
         <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>How do I contact World Electronics?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>What payment methods do you accept?</span>
+            <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">
-              You can call or text our primary shop line at <strong>+254 715 071 820</strong>, send a WhatsApp message anytime, or visit our shop in Kapsabet town during operating hours.
-            </div>
+            <p>We accept M-Pesa (Buy Goods Till / Paybill) as well as cash payments at our counter. For local deliveries within Kapsabet, payment can be finalized via M-Pesa upon receipt of your verified items.</p>
           </div>
         </div>
 
+        <!-- FAQ 4 -->
         <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>What are the shop's opening hours?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>Do your electronics come with a warranty?</span>
+            <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">
-              World Electronics is open <strong>every day from 8:00 AM to 8:00 PM</strong>, including weekends.
-            </div>
+            <p>Yes. Brand-new smartphones, laptops, and smart TVs carry official manufacturer warranties (typically 12 to 24 months depending on brand). All accessories and refurbished laptops are thoroughly tested at our shop counter before handover.</p>
           </div>
         </div>
 
+        <!-- FAQ 5 -->
         <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>Can I ask about delivery?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
+          <button type="button" class="faq-question-btn" aria-expanded="false">
+            <span>Do you deliver outside Kapsabet town?</span>
+            <span class="faq-icon">+</span>
           </button>
           <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes! When you initiate an order on WhatsApp, let us know your location in Kapsabet or surrounding areas in Nandi County. We will explain available delivery or courier options and pickup arrangements.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>How do I confirm the final price?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              The prices shown in this catalogue are proposed sample prices in Kenyan Shillings (KSh). When you message us on WhatsApp, our team will confirm the exact current in-store price, any available bundle discounts, and payment terms before you pay.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button type="button" class="faq-question-btn">
-            <span>Can I visit the physical shop in Kapsabet?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Yes, absolutely! We welcome in-person visits to inspect products, test audio, and speak directly with our team. Use the Google Maps directions link in the contact section below to navigate straight to us.
-            </div>
+            <p>Yes! We provide same-day rider delivery across Kapsabet CBD, Baraton University, Chepterit, and Nandi Hills. For destinations further across Kenya, we coordinate secure courier parcel services.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION L: LOCATION AND CONTACT -->
+  <!-- SECTION: STORE LOCATION & VISIT -->
   <section class="section-padding" id="location">
     <div class="container">
-      <div class="section-header">
-        <span class="section-kicker">Find Us</span>
-        <h2 class="section-title">Location & Contact</h2>
-        <p class="section-subtitle">Visit World Electronics in Kapsabet or contact our customer desk directly.</p>
-      </div>
+      <div class="location-banner">
+        <div class="location-content">
+          <span class="section-kicker" style="color: var(--color-secondary);">Visit Us in Person</span>
+          <h2 style="font-size: 1.875rem; font-weight: 800; color: #ffffff; margin-bottom: 1rem;">Come Visit World Electronics in Kapsabet</h2>
+          <p style="color: #cbd5e1; font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            We operate daily from 8:00 AM to 8:00 PM. Test smartphones, compare laptop screen sizes, listen to soundbars, and get personalized advice from our friendly tech technicians.
+          </p>
 
-      <div class="contact-grid">
-        <div class="contact-info-card">
-          <div class="contact-detail-row">
-            <div class="contact-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Store Location</div>
-              <div class="contact-detail-value">World Electronics</div>
-              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Kapsabet, Nandi County, Kenya</p>
-            </div>
-          </div>
-
-          <div class="contact-detail-row">
-            <div class="contact-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Phone & Call Enquiries</div>
-              <div class="contact-detail-value">+254 715 071 820</div>
-              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Direct phone line for voice calls and SMS</p>
-            </div>
-          </div>
-
-          <div class="contact-detail-row">
-            <div class="contact-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-            </div>
-            <div>
-              <div class="contact-detail-label">Business Hours</div>
-              <div class="contact-detail-value">Every day, 8:00 AM–8:00 PM</div>
-              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Monday through Sunday</p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <a href="https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
-              </svg>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-secondary btn-lg">
+              Contact &amp; Directions Details →
+            </a>
+            <a href="https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-lg">
               Open in Google Maps
             </a>
-            <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20directions%20to%20your%20shop." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-              WhatsApp Us
-            </a>
           </div>
         </div>
 
-        <div class="contact-map-frame">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.056073703565!2d35.168333!3d0.203889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780f2d9c07153a5%3A0x6b8bc215091763ef!2sKapsabet!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
-            title="World Electronics Location Map Kapsabet" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+        <div class="location-hours-box">
+          <h3 style="font-size: 1.125rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">Store Operating Hours</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.65rem; color: #e2e8f0; font-size: 0.9375rem;">
+            <li style="display: flex; justify-content: space-between;">
+              <span>Monday – Saturday:</span>
+              <strong style="color: #ffffff;">8:00 AM – 8:00 PM</strong>
+            </li>
+            <li style="display: flex; justify-content: space-between;">
+              <span>Sunday:</span>
+              <strong style="color: #ffffff;">8:00 AM – 8:00 PM</strong>
+            </li>
+            <li style="display: flex; justify-content: space-between;">
+              <span>Public Holidays:</span>
+              <strong style="color: #ffffff;">Open Normal Hours</strong>
+            </li>
+          </ul>
+
+          <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8125rem; color: #94a3b8;">
+            📍 Located in Kapsabet CBD, Nandi County, Kenya.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION M: NEWSLETTER-STYLE ENGAGEMENT -->
+  <!-- SECTION: WHATSAPP ORDER BANNER -->
   <section class="container" style="margin-bottom: 4.5rem;">
-    <div class="newsletter-card">
-      <div class="newsletter-inner">
-        <h2 class="newsletter-title">Stay Updated With New Tech</h2>
-        <p class="newsletter-desc">Be the first in Kapsabet to know about new arrivals, price drops, and special offers on electronics.</p>
-        <button type="button" class="btn btn-whatsapp btn-lg" onclick="openNewsletterWhatsApp()">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
-          </svg>
-          Get Tech Updates on WhatsApp
-        </button>
+    <div style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border-radius: var(--radius-xl); padding: 3rem 2rem; color: #ffffff; text-align: center; box-shadow: var(--shadow-lg);">
+      <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.75rem;">Have a Specific Device in Mind?</h2>
+      <p style="font-size: 1.0625rem; opacity: 0.95; max-width: 650px; margin: 0 auto 1.75rem; line-height: 1.6;">
+        Send us the model name, photo, or specifications on WhatsApp (+254 715 071 820). We will verify in-store stock, offer transparent pricing, and prepare your package for pickup or delivery!
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a 
+          href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20am%20looking%20for%20a%20specific%20product." 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-navy btn-lg"
+          style="background: #101828; color: #ffffff;"
+        >
+          Message WhatsApp Desk Now
+        </a>
+        <a href="order.html" class="btn btn-outline-light btn-lg">
+          Go to Order Form
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- SECTION N: FOOTER -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <!-- Column 1: Brand Info -->
-      <div>
-        <div class="brand-logo" style="color: #ffffff;">
-          <div class="brand-icon-box" style="background: linear-gradient(135deg, #2563eb 0%, #1e293b 100%);">
+      <!-- Store Info -->
+      <div class="footer-col">
+        <div class="brand-logo footer-logo">
+          <div class="brand-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
               <line x1="8" y1="21" x2="16" y2="21"></line>
@@ -1279,114 +1028,112 @@
             </svg>
           </div>
           <div class="brand-info">
-            <span class="brand-title" style="color: #ffffff;">WORLD ELECTRONICS</span>
+            <span class="brand-title">WORLD ELECTRONICS</span>
             <span class="brand-location">Kapsabet, Kenya</span>
           </div>
         </div>
-        <p class="footer-brand-desc">
-          Your premier destination for genuine electronics, smartphones, laptops, audio systems, and power accessories in Kapsabet, Nandi County.
+        <p class="footer-desc">
+          Your World of Electronics, All in One Place. Providing genuine smartphones, computing gear, smart TVs, audio systems, and power solutions with dedicated local customer service in Kapsabet.
         </p>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Kapsabet, Nandi County, Kenya</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Open Daily: 8:00 AM – 8:00 PM</span>
+        </div>
       </div>
 
-      <!-- Column 2: Navigation Links -->
-      <div>
-        <h3 class="footer-heading">Quick Links</h3>
-        <ul class="footer-links-list">
-          <li><a href="#hero" class="footer-link">Home</a></li>
-          <li><a href="#deals" class="footer-link">Hot Deals</a></li>
-          <li><a href="#collection" class="footer-link">Full Catalogue</a></li>
-          <li><a href="#order-section" class="footer-link">Order Online</a></li>
-          <li><a href="#how-to-order" class="footer-link">How to Order</a></li>
-          <li><a href="#tech-corner" class="footer-link">Tech Guides</a></li>
-          <li><a href="#reviews-section" class="footer-link">Customer Reviews</a></li>
-          <li><a href="#faq" class="footer-link">FAQs</a></li>
+      <!-- Quick Store Pages -->
+      <div class="footer-col">
+        <h4 class="footer-title">Store Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All Products Catalogue (26)</a></li>
+          <li><a href="order.html">Interactive Order Form</a></li>
+          <li><a href="about.html">About World Electronics</a></li>
+          <li><a href="blog.html">Tech Guides &amp; Buying Advice</a></li>
+          <li><a href="reviews.html">Customer Reviews &amp; Ratings</a></li>
+          <li><a href="contact.html">Contact &amp; Store Directions</a></li>
         </ul>
       </div>
 
-      <!-- Column 3: Departments -->
-      <div>
-        <h3 class="footer-heading">Top Categories</h3>
-        <ul class="footer-links-list">
-          <li><a href="#collection" class="footer-link" onclick="filterByCategory('smartphones')">Smartphones</a></li>
-          <li><a href="#collection" class="footer-link" onclick="filterByCategory('laptops')">Laptops & PCs</a></li>
-          <li><a href="#collection" class="footer-link" onclick="filterByCategory('tvs')">TVs & Entertainment</a></li>
-          <li><a href="#collection" class="footer-link" onclick="filterByCategory('audio')">Audio & Speakers</a></li>
-          <li><a href="#collection" class="footer-link" onclick="filterByCategory('power')">Power & Charging</a></li>
-          <li><a href="#collection" class="footer-link" onclick="filterByCategory('home')">Home Electronics</a></li>
+      <!-- Categories -->
+      <div class="footer-col">
+        <h4 class="footer-title">Departments</h4>
+        <ul class="footer-links">
+          <li><a href="products.html?category=smartphones">Smartphones (Samsung, Redmi)</a></li>
+          <li><a href="products.html?category=laptops">Laptops &amp; Computers (HP, Lenovo)</a></li>
+          <li><a href="products.html?category=tvs">Smart 4K TVs &amp; Entertainment</a></li>
+          <li><a href="products.html?category=audio">Soundbars &amp; Bluetooth Speakers</a></li>
+          <li><a href="products.html?category=power">Power Banks &amp; Solar Solutions</a></li>
+          <li><a href="products.html?category=wearables">Smartwatches &amp; Trackers</a></li>
+          <li><a href="products.html?category=accessories">Phone &amp; Computer Accessories</a></li>
         </ul>
       </div>
 
-      <!-- Column 4: Contact & Directions -->
-      <div>
-        <h3 class="footer-heading">Visit or Contact</h3>
-        <ul class="footer-links-list">
-          <li style="color: #cbd5e1; font-size: 0.875rem;"><strong>Location:</strong> Kapsabet, Nandi County, Kenya</li>
-          <li style="color: #cbd5e1; font-size: 0.875rem;"><strong>Phone:</strong> +254 715 071 820</li>
-          <li style="color: #cbd5e1; font-size: 0.875rem;"><strong>Hours:</strong> Open Daily 8:00 AM–8:00 PM</li>
-          <li style="margin-top: 0.5rem;">
-            <a href="https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: var(--color-accent); font-weight: 600;">
-              Get Google Maps Directions →
-            </a>
-          </li>
-          <li>
-            <a href="https://world-electronics.kyte.site/en" target="_blank" rel="noopener noreferrer" class="footer-link" style="color: #60a5fa;">
-              View Kyte Online Storefront →
-            </a>
-          </li>
-        </ul>
+      <!-- Quick WhatsApp Desk -->
+      <div class="footer-col">
+        <h4 class="footer-title">Direct WhatsApp Desk</h4>
+        <p class="footer-desc">
+          Chat with our team for stock checks, real product pictures, and order status updates.
+        </p>
+        <a 
+          href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20have%20an%20enquiry." 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="btn btn-whatsapp" 
+          style="width: 100%; margin-bottom: 0.75rem;"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
+        <div style="font-size: 0.8125rem; color: #94a3b8;">
+          Phone: +254 715 071 820
+        </div>
       </div>
     </div>
 
-    <!-- Bottom Bar -->
+    <!-- Bottom -->
     <div class="container footer-bottom">
       <div>
         &copy; <span id="copyrightYear">2026</span> World Electronics Kapsabet. All rights reserved.
       </div>
-      <div>
-        Clean, static e-commerce website for World Electronics Kapsabet, Kenya.
+      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="order.html" style="color: #94a3b8; font-size: 0.8125rem;">Online Order Form</a>
+        <a href="products.html" style="color: #94a3b8; font-size: 0.8125rem;">Products Catalogue</a>
+        <a href="contact.html" style="color: #94a3b8; font-size: 0.8125rem;">Store Directions</a>
       </div>
     </div>
   </footer>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a 
-    href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20have%20an%20enquiry." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="floating-whatsapp" 
-    aria-label="Chat on WhatsApp"
-  >
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
-    </svg>
-    <span class="floating-whatsapp-tooltip">Chat on WhatsApp</span>
-  </a>
+  <!-- QUICK VIEW PRODUCT MODAL -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-label="Product Details">
+    <!-- Populated via script.js openProductModal(productId) -->
+  </div>
 
-  <!-- PRODUCT QUICK-VIEW MODAL -->
-  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-label="Product Details"></div>
-
-  <!-- BLOG ARTICLE READER MODAL -->
-  <div class="modal-overlay" id="blogModal" role="dialog" aria-modal="true" aria-label="Tech Guide Article"></div>
-
-  <!-- PRINTABLE RECEIPT MODAL -->
-  <div class="modal-overlay" id="receiptModal" role="dialog" aria-modal="true" aria-label="Order Receipt"></div>
-
-  <!-- SLIDE-OVER SHOPPING CART DRAWER -->
+  <!-- SHOPPING CART DRAWER -->
   <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
   <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
     <div class="cart-header">
-      <h3 class="cart-header-title">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
-        Shopping Cart <span id="cartDrawerHeaderCount" style="font-size: 0.9375rem; color: #64748b;">(0)</span>
-      </h3>
+      <h3 class="cart-header-title">Shopping Cart <span id="cartDrawerHeaderCount">(0)</span></h3>
       <button type="button" class="action-btn" onclick="closeCartDrawer()" aria-label="Close Cart">✕</button>
     </div>
-    <div class="cart-body" id="cartDrawerBody"></div>
-    <div class="cart-footer" id="cartDrawerFooter"></div>
+    <div class="cart-body" id="cartDrawerBody">
+      <!-- Populated dynamically via script.js renderCartDrawer() -->
+    </div>
+    <div class="cart-footer" id="cartDrawerFooter">
+      <!-- Subtotal, Delivery Note & WhatsApp Checkout Button -->
+    </div>
   </aside>
 
   <!-- TOAST NOTIFICATION -->
@@ -1397,6 +1144,20 @@
     <span id="toastText">Item added to cart</span>
   </div>
 
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a 
+    href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20have%20an%20enquiry." 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="floating-whatsapp" 
+    aria-label="Direct WhatsApp Chat"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+    </svg>
+  </a>
+
+  <!-- SCRIPTS -->
   <script src="./script.js"></script>
 </body>
 </html>

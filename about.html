@@ -66,9 +66,46 @@
           </svg>
           <span class="cart-badge" id="headerCartBadge" style="display: none;">0</span>
         </button>
+        <button type="button" class="action-btn mobile-menu-toggle" id="mobileMenuToggleBtn" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- MOBILE DRAWER MENU -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <span class="brand-title" style="font-size: 1rem;">WORLD ELECTRONICS</span>
+      </div>
+      <button type="button" class="action-btn" id="mobileDrawerCloseBtn" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-title">Store Pages</div>
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="products.html" class="mobile-nav-link">All Products Catalogue (26)</a></li>
+          <li><a href="order.html" class="mobile-nav-link">Interactive Order Form</a></li>
+          <li><a href="about.html" class="mobile-nav-link active">About Us &amp; Store Story</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Tech Guides &amp; Advice</a></li>
+          <li><a href="reviews.html" class="mobile-nav-link">Customer Reviews &amp; Ratings</a></li>
+          <li><a href="contact.html" class="mobile-nav-link">Contact &amp; Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+        Order on WhatsApp (+254 715 071 820)
+      </a>
+    </div>
+  </aside>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -89,7 +126,7 @@
       <!-- Story Split Grid -->
       <div class="about-story-grid">
         <div>
-          <span class="section-kicker">Our Story & Mission</span>
+          <span class="section-kicker">Our Story &amp; Mission</span>
           <h2 class="section-title">Bringing Quality Technology Closer to Kapsabet</h2>
           <p style="font-size: 1.0625rem; color: #475569; line-height: 1.7; margin-bottom: 1.25rem;">
             World Electronics was established to give residents, students, and businesses in Kapsabet and surrounding areas in Nandi County direct access to dependable electronics without having to travel long distances.
@@ -98,47 +135,23 @@
             Whether you need a smartphone with all-day battery life, a durable laptop for university coursework, high-capacity power banks, or vibrant home entertainment systems, we provide transparent pricing, testing at our counter, and frictionless WhatsApp support.
           </p>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="products.html" class="btn btn-navy btn-lg">Browse Our Catalogue</a>
-            <a href="https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-lg">Get Directions to Shop</a>
+            <a href="products.html" class="btn btn-navy">Browse Product Catalogue (26)</a>
+            <a href="contact.html" class="btn btn-outline">Visit Our Shop</a>
           </div>
         </div>
 
-        <div>
+        <div class="about-image-card">
           <img 
             src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&w=800&q=80" 
-            alt="World Electronics Storefront" 
-            style="border-radius: 20px; box-shadow: var(--shadow-xl); width: 100%; height: 380px; object-fit: cover;"
+            alt="World Electronics store counter in Kapsabet" 
+            class="about-img"
+            onerror="handleImageError(this, 'Store Showcase')"
           />
         </div>
       </div>
 
-      <!-- Quick Facts Strip -->
-      <div class="about-stat-strip">
-        <div>
-          <div class="about-stat-num">8:00 AM</div>
-          <div class="about-stat-label">Opening Time Every Day</div>
-        </div>
-        <div>
-          <div class="about-stat-num">8:00 PM</div>
-          <div class="about-stat-label">Closing Time Every Day</div>
-        </div>
-        <div>
-          <div class="about-stat-num">8+</div>
-          <div class="about-stat-label">Product Categories</div>
-        </div>
-        <div>
-          <div class="about-stat-num">100%</div>
-          <div class="about-stat-label">Tested Before Collection</div>
-        </div>
-      </div>
-
-      <!-- Values Grid -->
-      <div class="section-header">
-        <span class="section-kicker">Our Core Commitments</span>
-        <h2 class="section-title">What Guides World Electronics</h2>
-      </div>
-
-      <div class="about-features-grid">
+      <!-- Trust Pillars -->
+      <div class="trust-grid" style="margin-top: 4rem;">
         <div class="trust-card">
           <div class="trust-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -146,19 +159,18 @@
             </svg>
           </div>
           <h3 class="trust-card-title">Authentic Products</h3>
-          <p class="trust-card-desc">We stock genuine brand smartphones, accessories, and electronics with transparent specifications.</p>
+          <p class="trust-card-desc">We only stock verified, genuine electronics from brands with reliable warranty and repair support.</p>
         </div>
 
         <div class="trust-card">
           <div class="trust-icon-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg>
           </div>
-          <h3 class="trust-card-title">Clear Pricing in KSh</h3>
-          <p class="trust-card-desc">No hidden fees or unexpected charges. All proposed catalogue prices are in Kenyan Shillings.</p>
+          <h3 class="trust-card-title">Physical Counter Inspection</h3>
+          <p class="trust-card-desc">Every customer is encouraged to inspect their smartphone screen, test audio, and verify specs at our shop.</p>
         </div>
 
         <div class="trust-card">
@@ -190,11 +202,97 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-bottom" style="border-top: none; padding-top: 0;">
-      <div>&copy; <span id="copyrightYear">2026</span> World Electronics Kapsabet, Kenya.</div>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo footer-logo">
+          <div class="brand-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">WORLD ELECTRONICS</span>
+            <span class="brand-location">Kapsabet, Kenya</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Your World of Electronics, All in One Place. Providing genuine smartphones, computing gear, smart TVs, and power solutions in Kapsabet.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Store Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All Products (26)</a></li>
+          <li><a href="order.html">Interactive Order Form</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Tech Guides</a></li>
+          <li><a href="reviews.html">Customer Reviews</a></li>
+          <li><a href="contact.html">Contact &amp; Directions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Store Information</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Kapsabet, Nandi County, Kenya</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Daily: 8:00 AM – 8:00 PM</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">WhatsApp Desk</h4>
+        <p class="footer-desc">Direct support and questions answered by our shop technicians.</p>
+        <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; <span id="copyrightYear">2026</span> World Electronics Kapsabet, Kenya. All rights reserved.</div>
       <div><a href="contact.html" style="color: #60a5fa;">Contact World Electronics →</a></div>
     </div>
   </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h3 class="cart-header-title">Shopping Cart <span id="cartDrawerHeaderCount">(0)</span></h3>
+      <button type="button" class="action-btn" onclick="closeCartDrawer()" aria-label="Close Cart">✕</button>
+    </div>
+    <div class="cart-body" id="cartDrawerBody"></div>
+    <div class="cart-footer" id="cartDrawerFooter"></div>
+  </aside>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastText">Item added</span>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+    </svg>
+  </a>
 
   <script src="./script.js"></script>
 </body>

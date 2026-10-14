@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact & Directions | World Electronics Kapsabet</title>
+  <title>Contact &amp; Directions | World Electronics Kapsabet</title>
   <meta name="description" content="Visit World Electronics in Kapsabet, Nandi County, Kenya. Phone, opening hours, Google Maps directions, and direct WhatsApp enquiries." />
   <meta name="theme-color" content="#101828" />
 
@@ -58,9 +58,54 @@
 
       <div class="header-actions">
         <a href="order.html" class="btn btn-navy" style="font-size: 0.8125rem;">Order Form</a>
+        <button type="button" class="action-btn" onclick="openCartDrawer()" aria-label="Open Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge" id="headerCartBadge" style="display: none;">0</span>
+        </button>
+        <button type="button" class="action-btn mobile-menu-toggle" id="mobileMenuToggleBtn" aria-label="Toggle menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- MOBILE DRAWER MENU -->
+  <div class="mobile-drawer-overlay" id="mobileDrawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <span class="brand-title" style="font-size: 1rem;">WORLD ELECTRONICS</span>
+      </div>
+      <button type="button" class="action-btn" id="mobileDrawerCloseBtn" aria-label="Close menu">✕</button>
+    </div>
+    <div class="mobile-drawer-content">
+      <div class="mobile-nav-group">
+        <div class="mobile-nav-title">Store Pages</div>
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="products.html" class="mobile-nav-link">All Products Catalogue (26)</a></li>
+          <li><a href="order.html" class="mobile-nav-link">Interactive Order Form</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us &amp; Store Story</a></li>
+          <li><a href="blog.html" class="mobile-nav-link">Tech Guides &amp; Advice</a></li>
+          <li><a href="reviews.html" class="mobile-nav-link">Customer Reviews &amp; Ratings</a></li>
+          <li><a href="contact.html" class="mobile-nav-link active">Contact &amp; Directions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mobile-drawer-footer">
+      <a href="https://wa.me/254715071820?text=Hello%20World%20Electronics!%20I%20would%20like%20to%20order." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+        Order on WhatsApp (+254 715 071 820)
+      </a>
+    </div>
+  </aside>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -68,9 +113,9 @@
       <div class="page-breadcrumbs">
         <a href="index.html">Home</a>
         <span>/</span>
-        <span>Contact & Visit</span>
+        <span>Contact &amp; Visit</span>
       </div>
-      <h1 class="page-hero-title">Contact & Directions</h1>
+      <h1 class="page-hero-title">Contact &amp; Directions</h1>
       <p class="page-hero-desc">We welcome you to visit our physical shop in Kapsabet or reach out directly for phone and WhatsApp orders.</p>
     </div>
   </section>
@@ -91,7 +136,7 @@
             <div>
               <div class="contact-detail-label">Store Location</div>
               <div class="contact-detail-value">World Electronics</div>
-              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Kapsabet, Nandi County, Kenya</p>
+              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Kapsabet Town, Nandi County, Kenya</p>
             </div>
           </div>
 
@@ -102,9 +147,9 @@
               </svg>
             </div>
             <div>
-              <div class="contact-detail-label">Direct Phone Line</div>
+              <div class="contact-detail-label">Phone &amp; WhatsApp</div>
               <div class="contact-detail-value">+254 715 071 820</div>
-              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Voice calls, SMS and product inquiries</p>
+              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Active daily during working hours</p>
             </div>
           </div>
 
@@ -116,30 +161,34 @@
               </svg>
             </div>
             <div>
-              <div class="contact-detail-label">Business Hours</div>
-              <div class="contact-detail-value">Every day, 8:00 AM–8:00 PM</div>
-              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Open 7 days a week including weekends</p>
+              <div class="contact-detail-label">Opening Hours</div>
+              <div class="contact-detail-value">8:00 AM – 8:00 PM</div>
+              <p style="color: #64748b; font-size: 0.875rem; margin-top: 0.25rem;">Open Monday through Sunday</p>
             </div>
           </div>
 
-          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
-            <a href="https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9" target="_blank" rel="noopener noreferrer" class="btn btn-navy">
-              Get Google Maps Directions →
+          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+              </svg>
+              Chat on WhatsApp Directly
             </a>
-            <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-              Chat on WhatsApp
+            <a href="https://maps.app.goo.gl/EYdBgdU8nEiJ3Uev9" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%;">
+              Open in Google Maps
             </a>
           </div>
         </div>
 
-        <!-- Interactive Fast Enquiry Card -->
+        <!-- Interactive Direct Message Form -->
         <div class="order-form-card" style="margin-bottom: 0;">
           <h2 class="order-card-title">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
             </svg>
-            Quick WhatsApp Enquiry
+            Send WhatsApp Inquiry
           </h2>
+
           <form onsubmit="handleQuickContact(event)">
             <div class="form-group">
               <label for="quickContactName" class="form-label">Your Name</label>
@@ -157,7 +206,7 @@
             </div>
 
             <button type="submit" class="btn btn-whatsapp btn-lg" style="width: 100%;">
-              Open in WhatsApp (+254 715 071 820)
+              Send to WhatsApp Desk
             </button>
           </form>
         </div>
@@ -166,12 +215,13 @@
       <!-- Embedded Google Map -->
       <div style="margin-top: 3.5rem;">
         <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--color-primary); margin-bottom: 1rem;">Shop Location Map</h3>
-        <div class="contact-map-frame" style="height: 400px;">
+        <div class="contact-map-frame" style="height: 400px; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.056073703565!2d35.168333!3d0.203889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1780f2d9c07153a5%3A0x6b8bc215091763ef!2sKapsabet!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske" 
             title="World Electronics Location Map Kapsabet" 
             loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade"
+            style="width: 100%; height: 100%; border: none;"
           ></iframe>
         </div>
       </div>
@@ -180,11 +230,97 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-bottom" style="border-top: none; padding-top: 0;">
-      <div>&copy; <span id="copyrightYear">2026</span> World Electronics Kapsabet, Kenya.</div>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo footer-logo">
+          <div class="brand-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">WORLD ELECTRONICS</span>
+            <span class="brand-location">Kapsabet, Kenya</span>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Official electronics storefront in Kapsabet. Quality guaranteed on all smartphones, laptops, smart TVs, and accessories.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Store Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">All Products Catalogue (26)</a></li>
+          <li><a href="order.html">Interactive Order Form</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="blog.html">Tech Guides</a></li>
+          <li><a href="reviews.html">Customer Reviews</a></li>
+          <li><a href="contact.html">Contact &amp; Directions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Store Hours</h4>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span>Open Daily: 8:00 AM – 8:00 PM</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Kapsabet CBD, Nandi County</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">WhatsApp Support</h4>
+        <p class="footer-desc">Direct messaging with our in-store technicians.</p>
+        <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; <span id="copyrightYear">2026</span> World Electronics Kapsabet, Kenya. All rights reserved.</div>
       <div><a href="order.html" style="color: #60a5fa;">Interactive Order Form →</a></div>
     </div>
   </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h3 class="cart-header-title">Shopping Cart <span id="cartDrawerHeaderCount">(0)</span></h3>
+      <button type="button" class="action-btn" onclick="closeCartDrawer()" aria-label="Close Cart">✕</button>
+    </div>
+    <div class="cart-body" id="cartDrawerBody"></div>
+    <div class="cart-footer" id="cartDrawerFooter"></div>
+  </aside>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-notification" id="toastNotification" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastText">Message sent</span>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/254715071820" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+    </svg>
+  </a>
 
   <script src="./script.js"></script>
   <script>
@@ -195,7 +331,17 @@
       const msg = document.getElementById("quickContactMessage").value.trim();
 
       const text = `Hello World Electronics!\nMy name is ${name}.\nI would like to enquire about: ${subject}\n\nQuestion:\n${msg}`;
-      window.open(`https://wa.me/254715071820?text=${encodeURIComponent(text)}`, "_blank");
+      if (typeof openWhatsAppLink === "function") {
+        openWhatsAppLink(`https://wa.me/254715071820?text=${encodeURIComponent(text)}`);
+      } else {
+        const link = document.createElement("a");
+        link.href = `https://wa.me/254715071820?text=${encodeURIComponent(text)}`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => link.remove(), 100);
+      }
     }
   </script>
 </body>
